@@ -146,12 +146,32 @@ public class Chapter1 {
      * @return
      */
     public boolean oneAway(String s1, String s2) {
-        if (Math.abs(s1.length() - s2.length()) > 1)
+        int h1 = 0;
+        int t1 = s1.length() -1;
+        int h2 = 0;
+        int t2 = s2.length() -1;
+
+        while (h1 <= t1 && h2 <= t2) {
+           if (s1.charAt(h1) == s2.charAt(h2)) { 
+                h1 += 1;
+                h2 += 1;
+           }
+           else 
+                break;
+        }
+
+        while (h1 <= t1 && h2 <= t2) {
+            if (s1.charAt(t1) == s2.charAt(t2)) {
+                t1 -= 1;
+                t2 -= 1;
+            }
+            else
+                break;
+        }
+
+        if (Math.abs(t1 - h1 + t2 - h2) > 1)
             return false;
-
-
-        
-        return false;
+        return true;
     }
 
     /**

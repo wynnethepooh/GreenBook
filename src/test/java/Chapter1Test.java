@@ -57,7 +57,6 @@ public class Chapter1Test {
         assertTrue(chapter1.palindromePermutation(" Racecar"));
     }
 
-    @Disabled
     @Test
     public void oneAway() {
         assertTrue(chapter1.oneAway("pale", "ple")); // 0 1
