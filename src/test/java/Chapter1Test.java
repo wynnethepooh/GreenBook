@@ -180,14 +180,14 @@ public class Chapter1Test {
                 {9, 0, 11, 12}
         };
 
-        int[][] result = chapter1.zeroMatrix(matrix);
         System.out.println(matrixString(matrix));
-        System.out.println(matrixString(result));
+        chapter1.zeroMatrix(matrix);
+        System.out.println(matrixString(matrix));
 
         for (int row = 0; row < matrix.length; row++) {
-            if (!Arrays.equals(zeroed[row], result[row])) {
+            if (!Arrays.equals(zeroed[row], matrix[row])) {
                 fail("expected:\n" + matrixString(zeroed) + "\n" +
-                        "actual:\n" + matrixString(result));
+                        "actual:\n" + matrixString(matrix));
             }
         }
     }
