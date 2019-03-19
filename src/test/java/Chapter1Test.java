@@ -152,7 +152,7 @@ public class Chapter1Test {
                 {9, 0, 11, 12}
         };
 
-        int[][] result = chapter1.rotateMatrix(matrix);
+        int[][] result = chapter1.zeroMatrix(matrix);
         System.out.println(matrixString(matrix));
         System.out.println(matrixString(result));
 
