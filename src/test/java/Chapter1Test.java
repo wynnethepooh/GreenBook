@@ -77,7 +77,6 @@ public class Chapter1Test {
         assertEquals("abc", chapter1.stringCompression("abc"));
     }
 
-    @Disabled
     @Test
     public void rotateMatrix() {
         int[][] matrix = new int[][] {

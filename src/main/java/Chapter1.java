@@ -85,13 +85,6 @@ public class Chapter1 {
         return str;
     }
 
-    public boolean is_pow_2(long value) {
-        if (value == 2) 
-            return true;
-        if ((value < 2) || (value % 2 == 1))
-            return false;
-        return is_pow_2(value / 2);
-    }
     /**
      * Given a string, write a function to check if it is a permutation of a
      * palindrome. A palindrome is a word or phrase that is the same forwards
@@ -188,6 +181,30 @@ public class Chapter1 {
         return null;
     }
 
+    private void matrix_swap(int[][] matrix, int x1, int y1, int x2, int y2) {
+        int temp = matrix[x1][y1];
+
+        matrix[x1][y1] = matrix[x2][y2];
+        matrix[x2][y2] = temp;
+    }
+
+    private void matrix_rotation(int[][] matrix, int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
+        matrix_swap(matrix, x1, y1, x2, y2);
+        matrix_swap(matrix, x1, y1, x3, y3);
+        matrix_swap(matrix, x1, y1, x4, y4);
+    }
+
+    private void rotate_matrix(int[][] matrix, int start, int end) {
+        if (end - start < 2)
+            return;
+        
+        for (int idx = start; idx < end - 1; idx++) {
+            matrix_rotation(matrix, start, idx, idx, end - 1, end - 1, end - 1 - idx, end - 1 - idx, start);
+        }
+
+        rotate_matrix(matrix, start + 1, end - 1);
+        
+    }
     /**
      * Given an image represented by an NxN matrix, where each pixel in the
      * image is 4 bytes, write a method to rotate the image by 90 degrees. Can
@@ -197,7 +214,8 @@ public class Chapter1 {
      * @return rotated matrix
      */
     public int[][] rotateMatrix(int[][] matrix) {
-        return null;
+        rotate_matrix(matrix, 0, matrix.length);
+        return matrix;
     }
 
     /**
