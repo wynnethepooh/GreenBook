@@ -296,10 +296,9 @@ public class Chapter1 {
      * entire row and column are set to 0.
      *
      * @param matrix MxN matrix
-     * @return zeroed matrix
      */
-    public int[][] zeroMatrix(int[][] matrix) {
-        return null;
+    public void zeroMatrix(int[][] matrix) {
+
     }
 
     /**
