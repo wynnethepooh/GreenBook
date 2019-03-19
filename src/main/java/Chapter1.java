@@ -203,7 +203,7 @@ public class Chapter1 {
             return;
         
         for (int idx = start; idx < end - 1; idx++) {
-            matrix_rotation(matrix, start, idx, idx, end - 1, end - 1, end - 1 - idx, end - 1 - idx, start);
+            matrix_rotation(matrix, start, idx, idx, end - 1, end - 1, end - 1 - (idx - start), end - 1 - (idx - start), start);
         }
 
         rotate_matrix(matrix, start + 1, end - 1);
