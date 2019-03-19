@@ -263,7 +263,32 @@ public class Chapter1 {
     }
 
     public void rotateMatrixInPlace(int[][] matrix) {
+        int n = matrix.length;
 
+        // Go into each layer of the matrix
+        for (int layer = 0; layer < n/2; layer++) {
+            int first = layer;
+            int last = (n - 1) - layer;
+
+            for (int i = first; i < last; i++) {
+                int offset = i - layer;
+
+                // Save top
+                int temp = matrix[first][i];
+
+                // Set top to bottom left
+                matrix[first][i] = matrix[last - offset][first];
+
+                // Set bottom left to bottom right
+                matrix[last - offset][first] = matrix[last][last - offset];
+
+                // Set bottom right to top right
+                matrix[last][last - offset] = matrix[i][last];
+
+                // Set top right to saved top left
+                matrix[i][last] = temp;
+            }
+        }
     }
 
     /**
