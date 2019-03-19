@@ -116,7 +116,11 @@ public class Chapter1 {
      * @return URLified string
      */
     public char[] urlify(char[] str, int len) {
-        return null;
+        String string = new String(str);
+        string = string.trim();
+        string = string.replaceAll(" ", "%20");
+
+        return string.toCharArray();
     }
 
     /**
