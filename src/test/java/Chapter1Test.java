@@ -108,7 +108,6 @@ public class Chapter1Test {
         System.out.println();
     }
 
-    @Disabled
     @Test
     public void zeroMatrix() {
         int[][] matrix = new int[][] {
@@ -123,7 +122,7 @@ public class Chapter1Test {
                 {9, 0, 11, 12}
         };
 
-        int[][] result = chapter1.rotateMatrix(matrix);
+        int[][] result = chapter1.zeroMatrix(matrix);
         printMatrix(matrix);
         printMatrix(result);
 

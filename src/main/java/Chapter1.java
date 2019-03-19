@@ -255,7 +255,31 @@ public class Chapter1 {
      * @return zeroed matrix
      */
     public int[][] zeroMatrix(int[][] matrix) {
-        return null;
+        int[] rows = new int[matrix.length];
+        int[] cols;
+
+        if (matrix.length == 0)
+            return matrix;
+
+        cols = new int[matrix[0].length];
+        
+        for (int idx = 0; idx < matrix.length; idx++) {
+            for (int idy = 0; idy < matrix[0].length; idy++) {
+                if (matrix[idx][idy] == 0) {
+                    rows[idx] |= 1;
+                    cols[idy] |= 1;
+                }
+            }
+        }
+
+        for (int idx = 0; idx < matrix.length; idx++) {
+            for (int idy = 0; idy < matrix[0].length; idy++) {
+                if (rows[idx] > 0 || cols[idy] > 0)
+                    matrix[idx][idy] = 0;
+            }
+        }
+
+        return matrix;
     }
 
     /**
