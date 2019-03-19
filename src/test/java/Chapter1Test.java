@@ -107,4 +107,35 @@ public class Chapter1Test {
         }
         System.out.println();
     }
+
+    @Test
+    public void zeroMatrix() {
+        int[][] matrix = new int[][] {
+                {1, 2, 3, 4},
+                {5, 0, 7, 8},
+                {9, 10, 11, 12}
+        };
+
+        int[][] zeroed = new int[][] {
+                {1, 0, 3, 4},
+                {0, 0, 0, 0},
+                {9, 0, 11, 12}
+        };
+
+        int[][] result = chapter1.rotateMatrix(matrix);
+        printMatrix(matrix);
+        printMatrix(result);
+
+        for (int row = 0; row < matrix.length; row++) {
+            assertTrue(Arrays.equals(zeroed[row], result[row]));
+        }
+    }
+
+    @Test
+    public void stringRotation() {
+        assertTrue(chapter1.stringRotation("erbottlewat", "waterbottle"));
+        assertFalse(chapter1.stringRotation("waterbottle", "bottleerwat"));
+        assertFalse(chapter1.stringRotation("abcde", ""));
+        assertFalse(chapter1.stringRotation("", "abcde"));
+    }
 }
