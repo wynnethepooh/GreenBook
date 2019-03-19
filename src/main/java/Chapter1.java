@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,7 +12,18 @@ public class Chapter1 {
      * @return true if string has all unique characters
      */
     public boolean isUnique(String letters) {
-        return false;
+
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < letters.length(); i++) {
+            if (map.containsKey(letters.charAt(i))) {
+                return false;
+            } else {
+                map.put(letters.charAt(i), 1);
+            }
+        }
+
+        return true;
     }
 
     public boolean isUniqueNoDataStructures(String letters) {
