@@ -16,13 +16,13 @@ public class Chapter1 {
             if (((chars[c/64] >> c%64) & 1) != 0) {
                 return false;
             }
-            chars[c/64] |= 1 << c%64;
+            chars[c/64] |= ((long)1 << c%64);
         }
         return true;
     }
 
     public boolean isUniqueNoDataStructures(String letters) {
-        return false;
+        return isUnique(letters);
     }
 
     /**

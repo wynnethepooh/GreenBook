@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 
 import java.util.Arrays;
 
@@ -15,12 +16,12 @@ public class Chapter1Test {
         assertTrue(chapter1.isUnique("ab cd"));
         assertTrue(chapter1.isUnique(""));
 
-        //assertTrue(chapter1.isUniqueNoDataStructures("abcd"));
-        //assertFalse(chapter1.isUniqueNoDataStructures("abab"));
-        //assertTrue(chapter1.isUniqueNoDataStructures("ab cd"));
-        //assertTrue(chapter1.isUniqueNoDataStructures(""));
+        assertTrue(chapter1.isUniqueNoDataStructures("abcd"));
+        assertFalse(chapter1.isUniqueNoDataStructures("abab"));
+        assertTrue(chapter1.isUniqueNoDataStructures("ab cd"));
+        assertTrue(chapter1.isUniqueNoDataStructures(""));
     }
-
+    @Disabled
     @Test
     public void checkPermutation() {
         assertTrue(chapter1.checkPermutation("abcdefg", "efgabcd"));
@@ -29,6 +30,7 @@ public class Chapter1Test {
         assertFalse(chapter1.checkPermutation("", "abcdefg"));
     }
 
+    @Disabled
     @Test
     public void urlify() {
         char[] url = "Mr%20John%20Smith".toCharArray();
@@ -48,6 +50,7 @@ public class Chapter1Test {
         assertTrue(java.util.Arrays.equals(consecutiveSpacesUrl, result));
     }
 
+    @Disabled
     @Test
     public void palindromePermutation() {
         assertTrue(chapter1.palindromePermutation("Tact Coa"));
@@ -57,6 +60,7 @@ public class Chapter1Test {
         assertTrue(chapter1.palindromePermutation(" Racecar"));
     }
 
+    @Disabled
     @Test
     public void oneAway() {
         assertTrue(chapter1.oneAway("pale", "ple")); // 0 1
@@ -67,6 +71,7 @@ public class Chapter1Test {
         assertTrue(chapter1.oneAway("bake", "barke"));
     }
 
+    @Disabled
     @Test
     public void stringCompression() {
         assertEquals("a2b1c5a3", chapter1.stringCompression("aabcccccaaa"));
@@ -76,6 +81,7 @@ public class Chapter1Test {
         assertEquals("abc", chapter1.stringCompression("abc"));
     }
 
+    @Disabled
     @Test
     public void rotateMatrix() {
         int[][] matrix = new int[][] {
@@ -108,6 +114,7 @@ public class Chapter1Test {
         System.out.println();
     }
 
+    @Disabled
     @Test
     public void zeroMatrix() {
         int[][] matrix = new int[][] {
@@ -131,6 +138,7 @@ public class Chapter1Test {
         }
     }
 
+    @Disabled
     @Test
     public void stringRotation() {
         assertTrue(chapter1.stringRotation("erbottlewat", "waterbottle"));
