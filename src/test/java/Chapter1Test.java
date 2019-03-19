@@ -21,7 +21,6 @@ public class Chapter1Test {
         assertTrue(chapter1.isUniqueNoDataStructures("ab cd"));
         assertTrue(chapter1.isUniqueNoDataStructures(""));
     }
-    @Disabled
     @Test
     public void checkPermutation() {
         assertTrue(chapter1.checkPermutation("abcdefg", "efgabcd"));

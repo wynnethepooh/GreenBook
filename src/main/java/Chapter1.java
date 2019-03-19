@@ -12,10 +12,10 @@ public class Chapter1 {
      */
     public boolean isUnique(String letters) {
         long[] chars = new long[4];
+
         for (char c : letters.toCharArray()) {
-            if (((chars[c/64] >> c%64) & 1) != 0) {
+            if (((chars[c/64] >> c%64) & 1) != 0) 
                 return false;
-            }
             chars[c/64] |= ((long)1 << c%64);
         }
         return true;
@@ -34,7 +34,20 @@ public class Chapter1 {
      * @return true if string 1 is permutation of string 2
      */
     public boolean checkPermutation(String s1, String s2) {
-        return false;
+        byte[] chars = new byte[256];
+
+        if (s1.length() != s2.length()) 
+            return false;
+
+        for (char c : s1.toCharArray()) {
+            chars[c]++;
+        }
+
+        for (char c : s2.toCharArray()) {
+            if (chars[c]-- == 0) 
+                return false;
+        }
+        return true;
     }
 
     /**
