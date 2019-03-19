@@ -54,7 +54,7 @@ public class Chapter1Test {
         assertTrue(chapter1.palindromePermutation("tacocat"));
         assertFalse(chapter1.palindromePermutation("abcd"));
         assertTrue(chapter1.palindromePermutation(" tac0 cat0"));
-        assertTrue(chapter1.palindromePermutation(" racecar"));
+        assertTrue(chapter1.palindromePermutation("racecar"));
     }
 
     @Disabled

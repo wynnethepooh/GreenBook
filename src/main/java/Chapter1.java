@@ -102,22 +102,16 @@ public class Chapter1 {
      * @return true if string is a permutation of a palindrome
      */
     public boolean palindromePermutation(String str) {
-        long[] chars = new long[4];
-        boolean freeby = true;
+        byte[] chars = new byte[256];
+        byte sum = 0;
+        for (char c : str.toCharArray())
+            chars[c] ^= 1;
 
-        for (char c : str.toCharArray()) 
-            chars[c/64] ^= ((long)1 << c%64);
-
-        for (int idx = 0; idx < chars.length; idx++) {
-            if (chars[idx] != 0) {
-                if (freeby) {
-                    if (!is_pow_2(chars[idx]))
-                        return false;
-                    freeby = false;
-                }
-                return false;
-            }
-        }
+        for (char c : str.toCharArray())
+            sum += chars[c];
+        
+        if (sum > 1)
+            return false;
         return true;
     }
 
