@@ -85,6 +85,13 @@ public class Chapter1 {
         return str;
     }
 
+    public boolean is_pow_2(long value) {
+        if (value == 2) 
+            return true;
+        if ((value < 2) || (value % 2 == 1))
+            return false;
+        return is_pow_2(value / 2);
+    }
     /**
      * Given a string, write a function to check if it is a permutation of a
      * palindrome. A palindrome is a word or phrase that is the same forwards
@@ -95,7 +102,23 @@ public class Chapter1 {
      * @return true if string is a permutation of a palindrome
      */
     public boolean palindromePermutation(String str) {
-        return false;
+        long[] chars = new long[4];
+        boolean freeby = true;
+
+        for (char c : str.toCharArray()) 
+            chars[c/64] ^= ((long)1 << c%64);
+
+        for (int idx = 0; idx < chars.length; idx++) {
+            if (chars[idx] != 0) {
+                if (freeby) {
+                    if (!is_pow_2(chars[idx]))
+                        return false;
+                    freeby = false;
+                }
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
