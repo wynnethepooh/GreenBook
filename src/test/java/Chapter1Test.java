@@ -14,7 +14,10 @@ public class Chapter1Test {
         assertFalse(chapter1.isUnique("abab"));
         assertTrue(chapter1.isUnique("ab cd"));
         assertTrue(chapter1.isUnique(""));
+    }
 
+    @Test
+    public void isUniqueNoDataStructure() {
         assertTrue(chapter1.isUniqueNoDataStructures("abcd"));
         assertFalse(chapter1.isUniqueNoDataStructures("abab"));
         assertTrue(chapter1.isUniqueNoDataStructures("ab cd"));

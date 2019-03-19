@@ -27,7 +27,14 @@ public class Chapter1 {
     }
 
     public boolean isUniqueNoDataStructures(String letters) {
-        return false;
+        for (int i = 0; i < letters.length(); i++) {
+            for (int j = i + 1; j < letters.length(); j++) {
+                if (letters.charAt(i) == letters.charAt(j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
