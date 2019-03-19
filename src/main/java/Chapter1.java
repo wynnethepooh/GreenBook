@@ -11,7 +11,14 @@ public class Chapter1 {
      * @return true if string has all unique characters
      */
     public boolean isUnique(String letters) {
-        return false;
+        long[] chars = new long[4];
+        for (char c : letters.toCharArray()) {
+            if (((chars[c/64] >> c%64) & 1) != 0) {
+                return false;
+            }
+            chars[c/64] |= 1 << c%64;
+        }
+        return true;
     }
 
     public boolean isUniqueNoDataStructures(String letters) {
