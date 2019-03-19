@@ -1,3 +1,4 @@
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,11 +12,26 @@ public class Chapter1 {
      * @return true if string has all unique characters
      */
     public boolean isUnique(String letters) {
-        return false;
+        Set<Character> uniqueLetters = new HashSet<>();
+        for (int i = 0; i < letters.length(); i++) {
+            if (uniqueLetters.contains(letters.charAt(i))) {
+                return false;
+            } else {
+                uniqueLetters.add(letters.charAt(i));
+            }
+        }
+        return true;
     }
 
     public boolean isUniqueNoDataStructures(String letters) {
-        return false;
+        for (int i = 0; i < letters.length() - 1; i++) {
+            for (int k = i + 1; k < letters.length(); k++) {
+                if (letters.charAt(i) == letters.charAt(k)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
@@ -27,7 +43,38 @@ public class Chapter1 {
      * @return true if string 1 is permutation of string 2
      */
     public boolean checkPermutation(String s1, String s2) {
-        return false;
+        String sorted1 = sort(s1);
+        String sorted2 = sort(s2);
+
+        return sorted1.equals(sorted2);
+    }
+
+    private String sort(String s) {
+        char[] sorted = s.toCharArray();
+        java.util.Arrays.sort(sorted);
+        return new String(sorted);
+    }
+
+    public boolean checkPermutationByCount(String s1, String s2) {
+        int[] letters1 = new int[256];
+        int[] letters2 = new int[256];
+
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+
+        for (int i = 0; i < s1.length(); i++) {
+            letters1[s1.charAt(i)]++;
+        }
+        for (int i = 0; i < s2.length(); i++) {
+            letters2[s2.charAt(i)]++;
+        }
+        for (int i = 0; i < 256; i++) {
+            if (letters1[i] != letters2[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -42,7 +89,24 @@ public class Chapter1 {
      * @return URLified string
      */
     public char[] urlify(char[] str, int len) {
-        return null;
+        int last = str.length - 1; // last updated in URLified
+        int curr = len - 1;
+
+        while (last > curr) {
+            if (str[curr] != ' ') {
+                str[last] = str[curr];
+                last--;
+                curr--;
+            } else {
+                str[last] = '0';
+                str[--last] = '2';
+                str[--last] = '%';
+                last--;
+                curr--;
+            }
+        }
+
+        return str;
     }
 
     /**
@@ -55,7 +119,32 @@ public class Chapter1 {
      * @return true if string is a permutation of a palindrome
      */
     public boolean palindromePermutation(String str) {
-        return false;
+        String lowerStr = str.toLowerCase();
+        boolean odd = false;
+
+        int z = Character.getNumericValue('z');
+        int a = Character.getNumericValue('a');
+
+        int letterCountSize = z - a;
+        int[] letterCount = new int[letterCountSize];
+
+        for (int i = 0; i < lowerStr.length(); i++) {
+            int numValue = Character.getNumericValue(lowerStr.charAt(i));
+            if (numValue <= z && numValue >= a) {
+                letterCount[numValue - a]++;
+            }
+        }
+
+        for (int i = 0; i < letterCount.length; i++) {
+            if (letterCount[i] % 2 == 1) {
+                if (odd) {
+                    return false;
+                } else {
+                    odd = true;
+                }
+            }
+        }
+        return true;
     }
 
     /**
@@ -74,7 +163,43 @@ public class Chapter1 {
      * @return
      */
     public boolean oneAway(String s1, String s2) {
-        return false;
+        int frontEqual = 0, endEqual;
+
+        if (s1.length() - s2.length() > 1 || s1.length() - s2.length() < -1) {
+            return false;
+        }
+
+        // s1 will always be longer, so swap if it is not
+        if (s1.length() < s2.length()) {
+            String temp = s1;
+            s1 = s2;
+            s2 = temp;
+        }
+        endEqual =  s1.length() - 1;
+
+        // Compare fronts of strings
+        for (int i = 0; i < s2.length(); i++) {
+            if (s1.charAt(i) == s2.charAt(i)) {
+                frontEqual = i;
+            } else {
+                break;
+            }
+        }
+
+        // Compare ends of strings
+        for (int i = s2.length() - 1, k = s1.length() - 1; i >= frontEqual; i--, k--) {
+            if (s1.charAt(k) == s2.charAt(i)) {
+                endEqual = i;
+            } else {
+                break;
+            }
+        }
+
+        if (endEqual - frontEqual > 1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -88,7 +213,26 @@ public class Chapter1 {
      * @return compressed string
      */
     public String stringCompression(String str) {
-        return null;
+        int count = 1;
+        StringBuilder finalStr = new StringBuilder();
+
+        if (str.length() < 3) {
+            return str;
+        }
+
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == str.charAt(i - 1)) {
+                count++;
+            } else {
+                finalStr.append(str.charAt(i - 1));
+                finalStr.append(count);
+                count = 1;
+            }
+        }
+        finalStr.append(str.charAt(str.length() - 1));
+        finalStr.append(count);
+
+        return (finalStr.length() >= str.length()) ? str : finalStr.toString();
     }
 
     /**
@@ -100,7 +244,18 @@ public class Chapter1 {
      * @return rotated matrix
      */
     public int[][] rotateMatrix(int[][] matrix) {
-        return null;
+        int len = matrix.length;
+        int[][] rotated = new int[len][len];
+        int y = len - 1;
+
+        for (int row = 0; row < len; row++) {
+            for (int col = 0; col < len; col++) {
+                rotated[col][y] = matrix[row][col];
+            }
+            y--;
+        }
+
+        return rotated;
     }
 
 }
