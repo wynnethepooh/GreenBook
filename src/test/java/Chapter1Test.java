@@ -135,9 +135,13 @@ public class Chapter1Test {
     @Disabled
     @Test
     public void stringRotation() {
-        assertTrue(chapter1.stringRotation("erbottlewat", "waterbottle"));
-        assertFalse(chapter1.stringRotation("waterbottle", "bottleerwat"));
-        assertFalse(chapter1.stringRotation("abcde", ""));
-        assertFalse(chapter1.stringRotation("", "abcde"));
+        assertTrue(chapter1.stringRotation("erbottlewat", "waterbottle"),
+                "stringRotation('erbottlewat', 'waterbottle') should have returned true");
+        assertFalse(chapter1.stringRotation("waterbottle", "bottleerwat"),
+                "stringRotation('waterbottle', 'bottleerwat') should have returned false");
+        assertFalse(chapter1.stringRotation("abcde", ""),
+                "stringRotation('abcde', '') should have returned false");
+        assertFalse(chapter1.stringRotation("", "abcde"),
+                "stringRotation('', 'abcde' should have returned false");
     }
 }
