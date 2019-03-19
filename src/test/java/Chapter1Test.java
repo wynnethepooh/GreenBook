@@ -50,11 +50,11 @@ public class Chapter1Test {
 
     @Test
     public void palindromePermutation() {
-        assertTrue(chapter1.palindromePermutation("tactcoa"));
-        assertTrue(chapter1.palindromePermutation("tacocat"));
+        assertTrue(chapter1.palindromePermutation("Tact Coa"));
+        assertTrue(chapter1.palindromePermutation("taco cat"));
         assertFalse(chapter1.palindromePermutation("abcd"));
-        assertTrue(chapter1.palindromePermutation(" tac0 cat0"));
-        assertTrue(chapter1.palindromePermutation("racecar"));
+        assertTrue(chapter1.palindromePermutation(" TacO Cat0"));
+        assertTrue(chapter1.palindromePermutation(" Racecar"));
     }
 
     @Disabled

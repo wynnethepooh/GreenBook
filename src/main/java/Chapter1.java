@@ -104,6 +104,21 @@ public class Chapter1 {
     public boolean palindromePermutation(String str) {
         byte[] chars = new byte[256];
         byte sum = 0;
+        for (char c : str.toLowerCase().toCharArray()) {
+            if (c >= 'a' && c <= 'z') 
+                chars[c] ^= 1;
+        }
+
+        for (char c : str.toCharArray())
+            sum += chars[c];
+        
+        if (sum > 1)
+            return false;
+        return true;
+    }
+    public boolean palindromePermutationMax(String str) {
+        byte[] chars = new byte[256];
+        byte sum = 0;
         for (char c : str.toCharArray())
             chars[c] ^= 1;
 
@@ -131,6 +146,11 @@ public class Chapter1 {
      * @return
      */
     public boolean oneAway(String s1, String s2) {
+        if (Math.abs(s1.length() - s2.length()) > 1)
+            return false;
+
+
+        
         return false;
     }
 
