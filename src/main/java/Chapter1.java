@@ -282,6 +282,17 @@ public class Chapter1 {
         return matrix;
     }
 
+    private boolean is_substring(String s1, String s2) {
+        if (s2.length() > s1.length())
+            return false;
+
+        for (int idx = 0; idx < s1.length() - s2.length(); idx++) {
+            if (s2.equals(s1.substring(idx,idx + s2.length())))
+                return true;
+        }
+        return false;
+    }
+
     /**
      * Assume you have a method isSubstring which checks if one word is a
      * substring of another. Given two strings, s1 and s2, write code to check
@@ -293,7 +304,15 @@ public class Chapter1 {
      * @return true if s1 is a rotation of s2
      */
     public boolean stringRotation(String s1, String s2) {
-        return false;
+        StringBuilder s = new StringBuilder();
+
+        if (s1.length() != s2.length())
+            return false;
+
+        s.append(s2);
+        s.append(s2);
+
+        return is_substring(s.toString(), s1);
     }
 
 }

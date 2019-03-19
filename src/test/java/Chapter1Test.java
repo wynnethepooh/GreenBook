@@ -131,7 +131,6 @@ public class Chapter1Test {
         }
     }
 
-    @Disabled
     @Test
     public void stringRotation() {
         assertTrue(chapter1.stringRotation("erbottlewat", "waterbottle"),
