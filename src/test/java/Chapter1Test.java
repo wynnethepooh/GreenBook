@@ -25,13 +25,20 @@ public class Chapter1Test {
         assertTrue(chapter1.isUniqueNoDataStructures(""));
     }
 
-    @Disabled
     @Test
     public void checkPermutation() {
         assertTrue(chapter1.checkPermutation("abcdefg", "efgabcd"));
         assertFalse(chapter1.checkPermutation("abcdefg", "efgabc"));
         assertFalse(chapter1.checkPermutation("abcdefg", "aabcdefg"));
         assertFalse(chapter1.checkPermutation("", "abcdefg"));
+    }
+
+    @Test
+    public void checkPermutationV2() {
+        assertTrue(chapter1.checkPermutationV2("abcdefg", "efgabcd"));
+        assertFalse(chapter1.checkPermutationV2("abcdefg", "efgabc"));
+        assertFalse(chapter1.checkPermutationV2("abcdefg", "aabcdefg"));
+        assertFalse(chapter1.checkPermutationV2("", "abcdefg"));
     }
 
     @Disabled

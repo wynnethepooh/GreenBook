@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Arrays;
 import java.util.Set;
 
 public class Chapter1 {
@@ -46,7 +47,61 @@ public class Chapter1 {
      * @return true if string 1 is permutation of string 2
      */
     public boolean checkPermutation(String s1, String s2) {
-        return false;
+
+        // compare lengths of input strings
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+
+        // sort characters in strings
+        char[] s1CharArray = s1.toCharArray();
+        char[] s2CharArray = s2.toCharArray();
+
+        Arrays.sort(s1CharArray);
+        Arrays.sort(s2CharArray);
+
+        // compare each value in sorted arrays
+        for (int i = 0; i < s1CharArray.length; i++) {
+            if (s1CharArray[i] != s2CharArray[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean checkPermutationV2(String s1, String s2) {
+
+        // compare lengths of input strings
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+
+        final int MAX_NUM_CHAR = 128;
+
+        int[] count1 = new int[MAX_NUM_CHAR];
+        int[] count2 = new int[MAX_NUM_CHAR];
+
+        // fill arrays with 0s
+        Arrays.fill(count1, 0);
+        Arrays.fill(count2, 0);
+
+        // convert string to char[]
+        char[] s1CharArray = s1.toCharArray();
+        char[] s2CharArray = s2.toCharArray();
+
+        for (int i = 0; i < s1CharArray.length; i++) {
+            count1[s1CharArray[i]]++;
+            count2[s2CharArray[i]]++;
+        }
+
+        for (int i = 0; i < MAX_NUM_CHAR; i++) {
+            if (count1[i] != count2[i]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
