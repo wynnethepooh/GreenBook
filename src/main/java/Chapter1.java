@@ -171,6 +171,13 @@ public class Chapter1 {
         return true;
     }
 
+    private void build(StringBuilder s, char c, int count) {
+        if (count > 0) {
+            s.append(c);
+            s.append("" + count);
+        }
+    }
+
     /**
      * Implement a method to perform basic string compression using the counts
      * of repeated characters. For example, the string aabcccccaaa would become
@@ -182,8 +189,26 @@ public class Chapter1 {
      * @return compressed string
      */
     public String stringCompression(String str) {
-        return null;
+        StringBuilder s = new StringBuilder();
+        int count = 0;
+        char chr = 0;
+
+        for (char c : str.toCharArray()) {
+            if (c == chr)
+                count++;
+            else {
+                build(s, chr, count);
+                chr = c;
+                count = 1;
+            }
+        }
+        build(s, chr, count);
+
+        if (s.length() < str.length()) 
+            return s.toString();
+        return str;
     }
+
 
     private void matrix_swap(int[][] matrix, int x1, int y1, int x2, int y2) {
         int temp = matrix[x1][y1];
