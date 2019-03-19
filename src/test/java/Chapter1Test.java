@@ -29,7 +29,6 @@ public class Chapter1Test {
         assertFalse(chapter1.checkPermutation("", "abcdefg"));
     }
 
-    @Disabled
     @Test
     public void urlify() {
         char[] url = "Mr%20John%20Smith".toCharArray();

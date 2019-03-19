@@ -62,7 +62,27 @@ public class Chapter1 {
      * @return URLified string
      */
     public char[] urlify(char[] str, int len) {
-        return null;
+        int new_size = len;
+        char temp;
+
+        for (int idx = 0; idx < len; idx++) {
+            if (str[idx] == ' ')
+                new_size += 2;
+        }
+
+        for (int idx = len-1; idx > 0; idx--) { 
+            if (str[idx] == ' ') {
+                str[new_size-- - 1] = '0';
+                str[new_size-- - 1] = '2';
+                str[new_size-- - 1] = '%';
+            }
+            else {
+                temp = str[idx];
+                str[idx] = str[new_size - 1];
+                str[new_size-- - 1] = temp;
+            }
+        }
+        return str;
     }
 
     /**
