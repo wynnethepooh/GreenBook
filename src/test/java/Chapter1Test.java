@@ -130,6 +130,34 @@ public class Chapter1Test {
         }
     }
 
+    @Test
+    public void rotateMatrixInPlace() {
+        int[][] matrix = new int[][] {
+                {0, 1, 2, 3},
+                {4, 5, 6, 7},
+                {8, 9, 10, 11},
+                {12, 13, 14, 15}
+        };
+
+        int[][] rotated = new int[][] {
+                {12, 8, 4, 0},
+                {13, 9, 5, 1},
+                {14, 10, 6, 2},
+                {15, 11, 7, 3}
+        };
+
+        System.out.println(matrixString(matrix));
+        chapter1.rotateMatrixInPlace(matrix);
+        System.out.println(matrixString(matrix));
+
+        for (int row = 0; row < matrix.length; row++) {
+            if (!Arrays.equals(rotated[row], matrix[row])) {
+                fail("expected:\n" + matrixString(rotated) + "\n" +
+                        "actual:\n" + matrixString(matrix));
+            }
+        }
+    }
+
     private String matrixString(int[][] matrix) {
         StringBuilder str = new StringBuilder();
         for (int row = 0; row < matrix.length; row++) {
