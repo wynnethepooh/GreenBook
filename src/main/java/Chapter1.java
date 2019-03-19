@@ -115,6 +115,10 @@ public class Chapter1 {
      * and backwards. A permutation is a rearrangement of letters. The
      * palindrome does not need to be limited to just dictionary words.
      *
+     * Example:
+     *  Input:  Tact Coa
+     *  Output: True (permutations: "taco cat", "atco cta", etc.)
+     *
      * @param str string
      * @return true if string is a permutation of a palindrome
      */
