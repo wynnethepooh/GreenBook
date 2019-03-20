@@ -18,7 +18,10 @@ public class Chapter1Test {
             "isUnique('ab cd') should have returned true");
     assertTrue(chapter1.isUnique(""),
             "isUnique('') should have returned true");
+  }
 
+  @Test
+  public void isUniqueNoDataStructures () {
     assertTrue(chapter1.isUniqueNoDataStructures("abcd"),
             "isUnique('abcd') should have returned true");
     assertFalse(chapter1.isUniqueNoDataStructures("abab"),
@@ -75,6 +78,8 @@ public class Chapter1Test {
             "palindromePermutation(' TacO Cat0') should have returned true");
     assertTrue(chapter1.palindromePermutation(" Racecar"),
             "palindromePermutation(' Racecar') should have returned true");
+    assertTrue(chapter1.palindromePermutation(" Raczcar"),
+            "palindromePermutation(' Raczcar') should have returned true");
   }
 
   @Test
