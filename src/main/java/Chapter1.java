@@ -335,23 +335,11 @@ public class Chapter1 {
    * @return true if s1 is a rotation of s2
    */
   public boolean stringRotation(String s1, String s2) {
-    // util.isSubstring(s1, s2);
     if (s1.length() == s2.length() && s1.length() > 0) {
       String s1s1 = s1 + s1;
-      return isSubstring(s1s1, s2);
+      return util.isSubstring(s1s1, s2);
     }
     return false;
-  }
-
-  /**
-   * Checks if s2 is a substring of s1.
-   *
-   * @param s1 string
-   * @param s2 string
-   * @return true if s2 is a substring of s1
-   */
-  private boolean isSubstring(String s1, String s2) {
-    return s1.contains(s2);
   }
 
 }
