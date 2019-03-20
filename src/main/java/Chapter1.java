@@ -141,7 +141,40 @@ public class Chapter1 {
    * @return true if string is a permutation of a palindrome
    */
   public boolean palindromePermutation(String str) {
-    return false;
+    // convert string to have all lower case letters
+    String lowerString = str.toLowerCase();
+
+    // 26 letters in the alphabet
+    final int MAX_CHAR = 26;
+    int[] letterMap = new int[MAX_CHAR];
+
+    boolean isOddLetter = false;
+
+    // unicode value of 'a' and 'z'
+    int aValue = Character.getNumericValue('a');
+    int zValue = Character.getNumericValue('z');
+
+    // fill the letter map
+    for (int i = 0; i < lowerString.length(); i++) {
+      int charValue = Character.getNumericValue(lowerString.charAt(i));
+
+      if (charValue <= zValue && charValue >= aValue) {
+        letterMap[charValue - aValue]++;
+      }
+    }
+
+    // determine palindrome permutation
+    for (int value : letterMap) {
+      if (value % 2 != 0) {
+        if (isOddLetter) {
+          return false;
+        } else {
+          isOddLetter = true;
+        }
+      }
+    }
+
+    return true;
   }
 
   /**

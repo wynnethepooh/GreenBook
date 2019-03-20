@@ -76,7 +76,6 @@ public class Chapter1Test {
             "urlify('Mr  JohnSmith    ') should have returned 'Mr%20%20JohnSmith'");
   }
 
-  @Disabled
   @Test
   public void palindromePermutation() {
     assertTrue(chapter1.palindromePermutation("Tact Coa"),
