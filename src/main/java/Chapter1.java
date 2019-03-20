@@ -134,7 +134,7 @@ public class Chapter1 {
     int z = Character.getNumericValue('z');
     int a = Character.getNumericValue('a');
 
-    int letterCountSize = z - a;
+    int letterCountSize = z - a + 1;
     int[] letterCount = new int[letterCountSize];
 
     for (int i = 0; i < lowerStr.length(); i++) {
