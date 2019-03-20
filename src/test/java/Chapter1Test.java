@@ -75,6 +75,8 @@ public class Chapter1Test {
             "palindromePermutation(' TacO Cat0') should have returned true");
     assertTrue(chapter1.palindromePermutation(" Racecar"),
             "palindromePermutation(' Racecar') should have returned true");
+    assertTrue(chapter1.palindromePermutation(" Raczcar"),
+            "palindromePermutation(' Raczcar') should have returned true");
   }
 
   @Test
