@@ -111,8 +111,8 @@ public class Chapter2 {
    * @param head head of linked list
    * @param partition partition value
    */
-  public void partition(Node head, int partition) {
-
+  public Node partition(Node head, int partition) {
+    return head;
   }
 
   /**

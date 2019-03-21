@@ -119,6 +119,8 @@ public class Chapter2Test {
     assertTrue(expected.equalsList(input),
             "expected: " + expected + "\n" +
             "actual: " + input);
+
+    assertFalse(chapter2.deleteMiddleNode(null));
   }
 
   @Disabled
@@ -134,19 +136,21 @@ public class Chapter2Test {
     input.appendToTail(2);
     input.appendToTail(1);
 
-    Node expected = new Node(3);
-    expected.appendToTail(1);
-    expected.appendToTail(2);
-    expected.appendToTail(10);
-    expected.appendToTail(5);
-    expected.appendToTail(5);
-    expected.appendToTail(8);
+    int partition = 5;
+    Node result = chapter2.partition(input, 5);
+    Node curr = result;
 
-    Node test1 = input;
-    chapter2.partition(test1, 5);
-    assertTrue(expected.equalsList(test1),
-            "\nexpected: " + expected.getListString() +
-            "\nactual: " + test1.getListString());
+    // Assert that there are 3 elements less than 5
+    for (int i = 0; i < 3; i++) {
+      if (curr != null) {
+        assertTrue(curr.data < partition);
+        curr = curr.next;
+      }
+    }
+    while (curr != null) {
+      assertTrue(curr.data >= partition);
+      curr = curr.next;
+    }
   }
 
   @Disabled
