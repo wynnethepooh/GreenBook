@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import util.Node;
 
@@ -17,22 +18,23 @@ public class Chapter2Test {
     input.appendToTail('d');
     input.appendToTail('b');
 
-    Node output = new Node('a');
-    output.appendToTail('b');
-    output.appendToTail('c');
-    output.appendToTail('d');
+    Node expected = new Node('a');
+    expected.appendToTail('b');
+    expected.appendToTail('c');
+    expected.appendToTail('d');
 
     Node result = chapter2.removeDups(input);
-    assertTrue(result.equalsList(output),
-            "expected: " + result.getListString() + "\n" +
-            "actual: " + output.getListString());
+    assertTrue(result.equalsList(expected),
+            "\nexpected: " + expected.getListString() +
+            "\nactual: " + result.getListString());
 
-    result = chapter2.removeDups(output);
-    assertTrue(result.equals(output),
-            "expected: " + result.getListString() + "\n" +
-                    "actual: " + output.getListString());
+    result = chapter2.removeDups(expected);
+    assertTrue(result.equals(expected),
+            "\nexpected: " + expected.getListString() +
+            "\nactual: " + result.getListString());
   }
 
+  @Disabled
   @Test
   public void removeDupsNoBuffer() {
     // 5 -> 3 -> 5 -> 2 -> 7 -> 1
@@ -44,23 +46,24 @@ public class Chapter2Test {
     input.appendToTail(1);
 
     // 5 -> 3 -> 2 -> 7 -> 1
-    Node output = new Node(5);
-    output.appendToTail(3);
-    output.appendToTail(2);
-    output.appendToTail(7);
-    output.appendToTail(1);
+    Node expected = new Node(5);
+    expected.appendToTail(3);
+    expected.appendToTail(2);
+    expected.appendToTail(7);
+    expected.appendToTail(1);
 
     Node result = chapter2.removeDupsNoBuffer(input);
-    assertTrue(result.equalsList(output),
-            "expected: " + result.getListString() + "\n" +
-                    "actual: " + output.getListString());
+    assertTrue(result.equalsList(expected),
+            "\nexpected: " + expected.getListString() +
+                    "\nactual: " + result.getListString());
 
-    result = chapter2.removeDupsNoBuffer(output);
-    assertTrue(result.equals(output),
-            "expected: " + result.getListString() + "\n" +
-                    "actual: " + output.getListString());
+    result = chapter2.removeDupsNoBuffer(expected);
+    assertTrue(result.equals(expected),
+            "\nexpected: " + expected.getListString() +
+                    "\nactual: " + result.getListString());
   }
 
+  @Disabled
   @Test
   public void returnKthToLast() {
     // 10 -> 5 -> 1 -> 3 -> 4
@@ -82,6 +85,7 @@ public class Chapter2Test {
     assertEquals(null, result);
   }
 
+  @Disabled
   @Test
   public void deleteMiddleNode() {
     Node input = new Node('a');
@@ -104,6 +108,7 @@ public class Chapter2Test {
             "actual: " + input);
   }
 
+  @Disabled
   @Test
   public void partition() {
     // 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1
@@ -116,20 +121,21 @@ public class Chapter2Test {
     input.appendToTail(2);
     input.appendToTail(1);
 
-    Node output = new Node(3);
-    output.appendToTail(1);
-    output.appendToTail(2);
-    output.appendToTail(10);
-    output.appendToTail(5);
-    output.appendToTail(5);
-    output.appendToTail(8);
+    Node expected = new Node(3);
+    expected.appendToTail(1);
+    expected.appendToTail(2);
+    expected.appendToTail(10);
+    expected.appendToTail(5);
+    expected.appendToTail(5);
+    expected.appendToTail(8);
 
     Node result = chapter2.partition(input, 5);
-    assertTrue(output.equalsList(result),
-            "expected: " + output.getListString() + "\n" +
-            "actual: " + result.getListString());
+    assertTrue(expected.equalsList(result),
+            "\nexpected: " + expected.getListString() +
+            "\nactual: " + result.getListString());
   }
 
+  @Disabled
   @Test
   public void sumLists() {
     Node d1 = new Node(7);
@@ -146,10 +152,11 @@ public class Chapter2Test {
 
     Node result = chapter2.sumLists(d1, d2);
     assertTrue(sum.equalsList(result),
-            "expected: " + sum.getListString() + "\n" +
-            "actual: " + result.getListString());
+            "\nexpected: " + sum.getListString() +
+            "\nactual: " + result.getListString());
   }
 
+  @Disabled
   @Test
   public void sumListsForwardOrder() {
     Node d1 = new Node(6);
@@ -166,10 +173,11 @@ public class Chapter2Test {
 
     Node result = chapter2.sumListsForwardOrder(d1, d2);
     assertTrue(sum.equalsList(result),
-            "expected: " + sum.getListString() + "\n" +
-            "actual: " + result.getListString());
+            "\nexpected: " + sum.getListString() +
+            "\nactual: " + result.getListString());
   }
 
+  @Disabled
   @Test
   public void palindrome() {
     Node input = new Node(1);
@@ -185,11 +193,13 @@ public class Chapter2Test {
             input.getListString() + " is a palindrome");
   }
 
+  @Disabled
   @Test
   public void intersection() {
 
   }
 
+  @Disabled
   @Test
   public void loopDetection() {
 
