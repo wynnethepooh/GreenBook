@@ -1,4 +1,6 @@
 import util.Node;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Chapter2 {
 
@@ -9,7 +11,25 @@ public class Chapter2 {
    * @return linked list with removed duplicates
    */
   public Node removeDups(Node head) {
-    return null;
+    Node prev = head;
+    Node curr = head.next;
+
+    Set<Integer> unique = new HashSet<>();
+    unique.add(prev.data);
+    while (curr != null) {
+      if (unique.contains(curr.data)) {
+        curr = curr.next;
+        prev.next = curr;
+      } else {
+        unique.add(curr.data);
+      }
+      prev = prev.next;
+      if (curr != null) {
+        curr = curr.next;
+      }
+    }
+
+    return head;
   }
 
   /**
