@@ -303,21 +303,21 @@ public class Chapter1 {
    * @param matrix MxN matrix
    */
   public void zeroMatrix(int[][] matrix) {
-    Set<Integer> zeros = new HashSet<>();
+    Set<Integer> zeroRows = new HashSet<>();
+    Set<Integer> zeroCols = new HashSet<>();
 
     for (int row = 0; row < matrix.length; row++) {
       for (int col = 0; col < matrix[row].length; col++) {
         if (matrix[row][col] == 0) {
-          zeros.add(row);
-          zeros.add(col);
+          zeroRows.add(row);
+          zeroCols.add(col);
         }
       }
     }
 
     for (int row = 0; row < matrix.length; row++) {
       for (int col = 0; col < matrix[row].length; col++) {
-
-        if (zeros.contains(row) || zeros.contains(col)) {
+        if (zeroRows.contains(row) || zeroCols.contains(col)) {
           matrix[row][col] = 0;
         }
       }
