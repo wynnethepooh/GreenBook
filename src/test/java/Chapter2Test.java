@@ -77,7 +77,6 @@ public class Chapter2Test {
                     "\nactual: " + test2.getListString());
   }
 
-  @Disabled
   @Test
   public void returnKthToLast() {
     // 10 -> 5 -> 1 -> 3 -> 4

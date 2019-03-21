@@ -62,7 +62,23 @@ public class Chapter2 {
    * @return Kth to last element
    */
   public Node returnKthToLast(Node head, int k) {
-    return null;
+    Node left = head;
+    Node right = head;
+
+    for (int i = 0; i < k; i++) {
+      if (right != null) {
+        right = right.next;
+      } else {
+        return null;
+      }
+    }
+
+    while (right != null) {
+      left = left.next;
+      right = right.next;
+    }
+
+    return left;
   }
 
   /**
