@@ -95,7 +95,14 @@ public class Chapter2 {
    * @return true if node has been deleted
    */
   public boolean deleteMiddleNode(Node node) {
-    return false;
+    if (node == null || node.next == null) {
+      return false;
+    }
+
+    Node nextNode = node.next;
+    node.data = nextNode.data;
+    node.next = nextNode.next;
+    return true;
   }
 
   /**
@@ -112,6 +119,21 @@ public class Chapter2 {
    * @param partition partition value
    */
   public Node partition(Node head, int partition) {
+    Node tail = head;
+    Node curr = head;
+
+    while (curr != null) {
+      Node next = curr.next;
+      if (curr.data < partition) {
+        curr.next = head; // insert before head
+        head = curr;      // update head
+      } else {
+        tail.next = curr; // insert after tail
+        tail = curr;      // update tail
+      }
+      curr = next;
+    }
+    tail.next = null; // end list
     return head;
   }
 
