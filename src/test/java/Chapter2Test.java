@@ -18,18 +18,29 @@ public class Chapter2Test {
     input.appendToTail('d');
     input.appendToTail('b');
 
+    // a -> b -> c -> d
     Node expected = new Node('a');
     expected.appendToTail('b');
     expected.appendToTail('c');
     expected.appendToTail('d');
 
     Node result = chapter2.removeDups(input);
+    System.out.println(expected.getListString());
+    System.out.println(result.getListString());
     assertTrue(result.equalsList(expected),
             "\nexpected: " + expected.getListString() +
             "\nactual: " + result.getListString());
 
     result = chapter2.removeDups(expected);
     assertTrue(result.equals(expected),
+            "\nexpected: " + expected.getListString() +
+            "\nactual: " + result.getListString());
+
+    input = new Node('a');
+    input.appendToTail('a');
+    expected = new Node('a');
+    result = chapter2.removeDups(input);
+    assertTrue(result.equalsList(expected),
             "\nexpected: " + expected.getListString() +
             "\nactual: " + result.getListString());
   }
