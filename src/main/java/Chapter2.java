@@ -6,10 +6,9 @@ public class Chapter2 {
    * Write code to remove duplicates from an unsorted linked list.
    *
    * @param head head of linked list
-   * @return linked list with removed duplicates
    */
-  public Node removeDups(Node head) {
-    return null;
+  public void removeDups(Node head) {
+
   }
 
   /**
@@ -18,10 +17,9 @@ public class Chapter2 {
    * allowed?
    *
    * @param head head of linked list
-   * @return linked list with removed duplicates
    */
-  public Node removeDupsNoBuffer(Node head) {
-    return null;
+  public void removeDupsNoBuffer(Node head) {
+
   }
 
   /**
@@ -65,10 +63,9 @@ public class Chapter2 {
    *
    * @param head head of linked list
    * @param partition partition value
-   * @return paritioned linked list
    */
-  public Node partition(Node head, int partition) {
-    return null;
+  public void partition(Node head, int partition) {
+
   }
 
   /**
