@@ -86,7 +86,7 @@ public class Chapter2 {
     boolean carry = false;
     Node output = null, temp = null, head = null;
 
-    while (d1 != null || d2 != null || carry) {
+    do {
         temp = new Node(0);
 
         if (d1 != null) {
@@ -115,7 +115,7 @@ public class Chapter2 {
             output = temp;
             head = output;
         }
-    }
+    } while (d1 != null || d2 != null || carry);
     return head;
   }
   /**
