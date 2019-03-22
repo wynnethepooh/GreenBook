@@ -83,9 +83,41 @@ public class Chapter2 {
    * @return sum as linked list
    */
   public Node sumLists(Node d1, Node d2) {
-    return null;
-  }
+    boolean carry = false;
+    Node output = null, temp = null, head = null;
 
+    while (d1 != null || d2 != null || carry) {
+        temp = new Node(0);
+
+        if (d1 != null) {
+            temp.data += d1.data;
+            d1 = d1.next;
+        }
+        if (d2 != null) {
+            temp.data += d2.data;
+            d2 = d2.next;
+        }
+        if (carry) 
+            temp.data++;
+
+        if (temp.data > 9) {
+            temp.data %= 10;
+            carry = true;
+        }
+        else
+            carry = false;
+
+        if (output != null) {
+            output.next = temp;
+            output = output.next;
+        }
+        else {
+            output = temp;
+            head = output;
+        }
+    }
+    return head;
+  }
   /**
    * FOLLOW UP
    * Suppose the digits are stored in forward order. Repeat the above problem.

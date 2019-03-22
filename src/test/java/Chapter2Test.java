@@ -8,6 +8,7 @@ public class Chapter2Test {
 
   Chapter2 chapter2 = new Chapter2();
 
+  @Disabled
   @Test
   public void removeDups() {
     // a -> b -> a -> c -> d -> b
@@ -47,6 +48,7 @@ public class Chapter2Test {
             "\nactual: " + test3.getListString());
   }
 
+  @Disabled
   @Test
   public void removeDupsNoBuffer() {
     // 5 -> 3 -> 5 -> 2 -> 7 -> 1
@@ -77,6 +79,7 @@ public class Chapter2Test {
                     "\nactual: " + test2.getListString());
   }
 
+  @Disabled
   @Test
   public void returnKthToLast() {
     // 10 -> 5 -> 1 -> 3 -> 4
@@ -98,6 +101,7 @@ public class Chapter2Test {
     assertEquals(null, result);
   }
 
+  @Disabled
   @Test
   public void deleteMiddleNode() {
     Node input = new Node('a');
@@ -122,6 +126,7 @@ public class Chapter2Test {
     assertFalse(chapter2.deleteMiddleNode(null));
   }
 
+  @Disabled
   @Test
   public void partition() {
     // 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1
@@ -171,6 +176,7 @@ public class Chapter2Test {
             "\nactual: " + result.getListString());
   }
 
+  @Disabled
   @Test
   public void sumListsForwardOrder() {
     Node d1 = new Node(6);
@@ -191,6 +197,7 @@ public class Chapter2Test {
             "\nactual: " + result.getListString());
   }
 
+  @Disabled
   @Test
   public void palindrome() {
     Node input = new Node(1);
@@ -206,11 +213,13 @@ public class Chapter2Test {
             input.getListString() + " is a palindrome");
   }
 
+  @Disabled
   @Test
   public void intersection() {
 
   }
 
+  @Disabled
   @Test
   public void loopDetection() {
 
