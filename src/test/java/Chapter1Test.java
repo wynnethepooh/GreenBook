@@ -92,7 +92,6 @@ public class Chapter1Test {
             "palindromePermutation(' Raczcar') should have returned true");
   }
 
-  @Disabled
   @Test
   public void oneAway() {
     assertTrue(chapter1.oneAway("pale", "ple"),

@@ -193,7 +193,45 @@ public class Chapter1 {
    * @return
    */
   public boolean oneAway(String s1, String s2) {
-    return false;
+
+    // check that string lengths are at least 1 or less. Return false otherwise.
+    if (Math.abs(s1.length() - s2.length()) > 1) {
+      return false;
+    }
+
+    // indexes
+    int i = 0;
+    int j = 0;
+    int differenceCount = 0;
+
+    while ( i < s1.length() && j < s2.length()) {
+      if (s1.charAt(i) == s2.charAt(j)) {
+        i++;
+        j++;
+      } else {
+        if (differenceCount == 1) {
+          return false;
+        }
+
+        if (s1.length() < s2.length()) {
+          j++;
+        } else if (s2.length() < s1.length()) {
+          i++;
+        } else {
+          i++;
+          j++;
+        }
+
+        differenceCount++;
+      }
+    }
+
+    // account for leftover characters in strings
+    if (i < s1.length() || j < s2.length()) {
+      differenceCount++;
+    }
+
+    return differenceCount == 1;
   }
 
   /**
