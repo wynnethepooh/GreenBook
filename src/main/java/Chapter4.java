@@ -49,6 +49,35 @@ public class Chapter4 {
 
     // Return false if no node equals n2
     return false;
+
+    /*
+    // Depth-first search
+
+    // Base case: if either are null, return false
+    if (n1 == null || n2 == null) {
+      return false;
+    }
+
+    // Set state to visited
+    n1.state = Visited;
+
+    // If n1 = n2, a route has been found; return true
+    if (n1 == n2) {
+      return true;
+    }
+
+    // Check neighbors of current node
+    for(GraphNode neighbor : n1.adjacent) {
+      // If neighbor has not been visited, recursively try to find route
+      if(neighbor.state != Visited && routeBetweenNodes(neighbor, n2)) {
+        // If a route has been found, return true
+        return true;
+      }
+    }
+
+    // Otherwise a route has not been found; return false
+    return false;
+    */
   }
 
   /**
