@@ -23,8 +23,10 @@ public class Chapter4Test {
     node2.addAdjacent(node3);
     node3.addAdjacent(node4);
 
-    assertTrue(chapter4.routeBetweenNodes(node0, node4));
-    assertFalse(chapter4.routeBetweenNodes(node0, node5));
+    assertTrue(chapter4.routeBetweenNodes(node0, node4),
+            "Should have found route between nodes 0 and 4");
+    assertFalse(chapter4.routeBetweenNodes(node0, node5),
+            "Shouldn't have found route between nodes 0 and 5");
   }
 
   @Test
@@ -40,7 +42,9 @@ public class Chapter4Test {
     //    1 3  5
     TreeNode evenSortedTree = new TreeNode(new Integer[] {2, 0, 4, null, 1, 3, 5});
     result = chapter4.minimalTree(evenSortedArray);
-    assertTrue(evenSortedTree.equalsTree(result));
+    assertTrue(evenSortedTree.equalsTree(result),
+            "\nexpected: " + evenSortedTree.toString() +
+            "\nactual: " + result.toString());
 
     int[] oddSortedArray = new int[] { 0, 1, 2, 3, 4 };
     // Odd sorted tree:
@@ -51,7 +55,9 @@ public class Chapter4Test {
     //    1   4
     TreeNode oddSortedTree = new TreeNode(new Integer[] {2, 0, 3, null, 1, null, 4});
     result = chapter4.minimalTree(oddSortedArray);
-    assertTrue(oddSortedTree.equalsTree(result));
+    assertTrue(oddSortedTree.equalsTree(result),
+            "\nexpected: " + oddSortedTree.toString() +
+            "\nactual: " + result.toString());
   }
 
   @Test
@@ -74,7 +80,7 @@ public class Chapter4Test {
     //  /   / \
     // 1   3   4
     TreeNode goodBST = new TreeNode(new Integer[]{2, 2, 3, 1, null, 3, 4});
-    assertTrue(chapter4.validateBST(goodBST));
+    assertTrue(chapter4.validateBST(goodBST), "Validation of good BST failed");
     System.out.println("Validated good BST");
 
     // Bad Tree:
@@ -86,7 +92,7 @@ public class Chapter4Test {
     //   /
     //  3
     TreeNode badBST = new TreeNode(new Integer[]{0, null, 1, 2, 2, 3});
-    assertFalse(chapter4.validateBST(badBST));
+    assertFalse(chapter4.validateBST(badBST), "Validation of bad BST failed");
     System.out.println("Validated bad BST");
   }
 
