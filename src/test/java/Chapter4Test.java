@@ -9,6 +9,32 @@ public class Chapter4Test {
   Chapter4 chapter4 = new Chapter4();
 
   @Test
+  public void validateBST() {
+
+    // Good tree:
+    //     2
+    //    / \
+    //   2   3
+    //  /   / \
+    // 1   3   4
+    TreeNode goodBST = new TreeNode(new Integer[]{2, 2, 3, 1, null, 3, 4});
+    assertTrue(chapter4.validateBST(goodBST));
+    System.out.println("Validated good BST");
+
+    // Bad Tree:
+    //    0
+    //     \
+    //      1
+    //     / \
+    //    2   2
+    //   /
+    //  3
+    TreeNode badBST = new TreeNode(new Integer[]{0, null, 1, 2, 2, 3});
+    assertFalse(chapter4.validateBST(badBST));
+    System.out.println("Validated bad BST");
+  }
+
+  @Test
   public void validateTreeNodeFunctions() {
     /*
 
