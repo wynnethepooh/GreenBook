@@ -15,6 +15,8 @@ public class Chapter4Test {
 
   @Test
   public void minimalTree() {
+    TreeNode result;
+
     int[] evenSortedArray = new int[] { 0, 1, 2, 3, 4, 5 };
     // Even sorted tree:
     //     2
@@ -23,10 +25,19 @@ public class Chapter4Test {
     //    \ / \
     //    1 3  5
     TreeNode evenSortedTree = new TreeNode(new Integer[] {2, 0, 4, null, 1, 3, 5});
-    TreeNode result = chapter4.minimalTree(evenSortedArray);
+    result = chapter4.minimalTree(evenSortedArray);
     assertTrue(evenSortedTree.equalsTree(result));
 
     int[] oddSortedArray = new int[] { 0, 1, 2, 3, 4 };
+    // Odd sorted tree:
+    //     2
+    //    / \
+    //   0   3
+    //    \   \
+    //    1   4
+    TreeNode oddSortedTree = new TreeNode(new Integer[] {2, 0, 3, null, 1, null, 4});
+    result = chapter4.minimalTree(oddSortedArray);
+    assertTrue(oddSortedTree.equalsTree(result));
   }
 
   @Test
