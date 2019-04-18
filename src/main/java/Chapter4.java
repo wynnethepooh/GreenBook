@@ -3,6 +3,10 @@ import util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
+
+import static util.GraphNode.State.Unvisited;
+import static util.GraphNode.State.Visited;
 
 public class Chapter4 {
 
@@ -15,6 +19,35 @@ public class Chapter4 {
    * @return true if there is a route between the nodes
    */
   public boolean routeBetweenNodes(GraphNode n1, GraphNode n2) {
+
+    // Breadth-first search
+    // Keep queue of nodes visiting; add n1 to queue
+    Queue<GraphNode> visiting = new LinkedList<>();
+    visiting.add(n1);
+
+    GraphNode node;
+    // While queue is not empty, poll queue to check nodes
+    while (visiting.peek() != null) {
+      node = visiting.poll();
+
+      // Check neighbors of polled node
+      for (GraphNode neighbor : node.adjacent) {
+        // If node is Unvisited, check node
+        if (neighbor.state == Unvisited) {
+          // If node is equal to n1, return true
+          if (neighbor == n2) {
+            return true;
+          } else {
+            // Else add node to visiting queue
+            visiting.add(neighbor);
+          }
+        }
+      }
+      // Set polled node to visited
+      node.state = Visited;
+    }
+
+    // Return false if no node equals n2
     return false;
   }
 
