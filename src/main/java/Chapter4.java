@@ -55,6 +55,8 @@ public class Chapter4 {
     return false;
   }
 
+  private Integer lastValue = null;
+
   /**
    * Implement a function to check if a binary tree is a binary search tree.
    *
@@ -62,7 +64,28 @@ public class Chapter4 {
    * @return true if binary tree is binary search tree
    */
   public boolean validateBST(TreeNode root) {
-    return false;
+
+    // Binary tree is left <= current < right
+
+    // Check if node is null; return true
+    if (root == null) {
+      return true;
+    }
+
+    // Check left subtree
+    if (!validateBST(root.left)) {
+      return false;
+    }
+    // Check current data
+    if (lastValue != null && root.data < lastValue) {
+      return false;
+    }
+    lastValue = root.data;
+    // Check right subtree
+    if (!validateBST(root.right)) {
+      return false;
+    }
+    return true;
   }
 
   /**
