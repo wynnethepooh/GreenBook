@@ -1,6 +1,6 @@
-import util.Node;
 import java.util.HashSet;
 import java.util.Set;
+import util.LinkedListNode;
 
 public class Chapter2 {
 
@@ -9,9 +9,9 @@ public class Chapter2 {
    *
    * @param head head of linked list
    */
-  public void removeDups(Node head) {
-    Node prev = head;
-    Node curr = head.next;
+  public void removeDups(LinkedListNode head) {
+    LinkedListNode prev = head;
+    LinkedListNode curr = head.next;
 
     Set<Integer> unique = new HashSet<>();
     unique.add(prev.data);
@@ -36,8 +36,8 @@ public class Chapter2 {
    *
    * @param head head of linked list
    */
-  public void removeDupsNoBuffer(Node head) {
-    Node curr = head;
+  public void removeDupsNoBuffer(LinkedListNode head) {
+    LinkedListNode curr = head;
 
     while (curr != null) {
       Node runner = curr;
@@ -61,9 +61,9 @@ public class Chapter2 {
    * @param k number
    * @return Kth to last element
    */
-  public Node returnKthToLast(Node head, int k) {
-    Node left = head;
-    Node right = head;
+  public LinkedListNode returnKthToLast(LinkedListNode head, int k) {
+    LinkedListNode left = head;
+    LinkedListNode right = head;
 
     for (int i = 0; i < k; i++) {
       if (right != null) {
@@ -94,12 +94,12 @@ public class Chapter2 {
    * @param node node
    * @return true if node has been deleted
    */
-  public boolean deleteMiddleNode(Node node) {
+  public boolean deleteMiddleNode(LinkedListNode node) {
     if (node == null || node.next == null) {
       return false;
     }
 
-    Node nextNode = node.next;
+    LinkedListNode nextNode = node.next;
     node.data = nextNode.data;
     node.next = nextNode.next;
     return true;
@@ -118,12 +118,12 @@ public class Chapter2 {
    * @param head head of linked list
    * @param partition partition value
    */
-  public Node partition(Node head, int partition) {
-    Node tail = head;
-    Node curr = head;
+  public LinkedListNode partition(LinkedListNode head, int partition) {
+    LinkedListNode tail = head;
+    LinkedListNode curr = head;
 
     while (curr != null) {
-      Node next = curr.next;
+      LinkedListNode next = curr.next;
       if (curr.data < partition) {
         curr.next = head; // insert before head
         head = curr;      // update head
@@ -151,7 +151,7 @@ public class Chapter2 {
    * @param d2 digit 2
    * @return sum as linked list
    */
-  public Node sumLists(Node d1, Node d2) {
+  public LinkedListNode sumLists(LinkedListNode d1, LinkedListNode d2) {
     return null;
   }
 
@@ -163,7 +163,7 @@ public class Chapter2 {
    * @param d2 digit 2
    * @return sum as linked list
    */
-  public Node sumListsForwardOrder(Node d1, Node d2) {
+  public LinkedListNode sumListsForwardOrder(LinkedListNode d1, LinkedListNode d2) {
     return null;
   }
 
@@ -173,7 +173,7 @@ public class Chapter2 {
    * @param head head of linked list
    * @return true if linked list is a palindrome
    */
-  public boolean palindrome(Node head) {
+  public boolean palindrome(LinkedListNode head) {
     return false;
   }
 
@@ -188,7 +188,7 @@ public class Chapter2 {
    * @param h2 head of second linked list
    * @return intersecting node
    */
-  public Node intersection(Node h1, Node h2) {
+  public LinkedListNode intersection(LinkedListNode h1, LinkedListNode h2) {
     return null;
   }
 
@@ -207,7 +207,7 @@ public class Chapter2 {
    * @param head head of linked list
    * @return node at beginning of loop
    */
-  public Node loopDetection(Node head) {
+  public LinkedListNode loopDetection(LinkedListNode head) {
     return null;
   }
 
