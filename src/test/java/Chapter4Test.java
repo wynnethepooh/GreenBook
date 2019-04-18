@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import util.GraphNode;
 import util.TreeNode;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -10,7 +11,20 @@ public class Chapter4Test {
 
   @Test
   public void routeBetweenNodes() {
+    GraphNode node0 = new GraphNode(0);
+    GraphNode node1 = new GraphNode(1);
+    GraphNode node2 = new GraphNode(2);
+    GraphNode node3 = new GraphNode(3);
+    GraphNode node4 = new GraphNode(4);
+    GraphNode node5 = new GraphNode(5);
 
+    node0.addAdjacent(node1);
+    node0.addAdjacent(node2);
+    node2.addAdjacent(node3);
+    node3.addAdjacent(node4);
+
+    assertTrue(chapter4.routeBetweenNodes(node0, node4));
+    assertFalse(chapter4.routeBetweenNodes(node0, node5));
   }
 
   @Test
