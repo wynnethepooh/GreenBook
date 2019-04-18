@@ -40,7 +40,7 @@ public class Chapter2 {
     LinkedListNode curr = head;
 
     while (curr != null) {
-      Node runner = curr;
+      LinkedListNode runner = curr;
 
       while (runner.next != null) {
         if (runner.next.data == curr.data) {
