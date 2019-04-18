@@ -5,9 +5,9 @@ import java.util.Queue;
 
 public class TreeNode {
 
-  int data;
-  TreeNode right;
-  TreeNode left;
+  public int data;
+  public TreeNode right;
+  public TreeNode left;
 
   public TreeNode(Integer d) {
     data = d;
