@@ -26,7 +26,22 @@ public class Chapter4 {
    * @return binary search tree
    */
   public TreeNode minimalTree(int[] nums) {
-    return null;
+    return createBST(nums, 0, nums.length - 1);
+  }
+
+  private TreeNode createBST(int[] nums, int beginning, int end) {
+    if (end < beginning) {
+      return null;
+    }
+
+    // Take middle element and set as root
+    int midpoint = (beginning + end) / 2;
+    TreeNode root = new TreeNode(nums[midpoint]);
+
+    // Recursively insert middle of left and right into tree
+    root.left = createBST(nums, beginning, midpoint - 1);
+    root.right = createBST(nums, midpoint + 1, end);
+    return root;
   }
 
 
