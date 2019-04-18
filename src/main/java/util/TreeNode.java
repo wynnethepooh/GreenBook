@@ -54,7 +54,6 @@ public class TreeNode {
    */
   public boolean equalsTree(TreeNode other) {
 
-    System.out.println("what");
     // If left of one of them is null, return false
     if (other.left == null ^ this.left == null) {
       return false;
