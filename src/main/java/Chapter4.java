@@ -160,10 +160,40 @@ public class Chapter4 {
    * @return true if binary tree is balanced
    */
   public boolean checkBalanced(TreeNode root) {
-    return false;
+
+    if (checkHeight(root) == ERROR_CODE) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
-  private Integer lastValue = null;
+  private int ERROR_CODE = -2;
+
+  private int checkHeight(TreeNode root) {
+    // If root is null, return -1
+    if (root == null) {
+      return -1;
+    }
+
+    // Check left height
+    int leftHeight = checkHeight(root.left);
+
+    // Check right height
+    int rightHeight = checkHeight(root.right);
+
+    if (leftHeight == ERROR_CODE || rightHeight == ERROR_CODE) {
+      return ERROR_CODE;
+    }
+
+    // If difference of left and right is more than 1, return error code
+    if (Math.abs(leftHeight - rightHeight) > 1) {
+      return ERROR_CODE;
+    } else {
+      // Else return the bigger height
+      return Math.max(leftHeight, rightHeight) + 1;
+    }
+  }
 
   /**
    * Implement a function to check if a binary tree is a binary search tree.
@@ -195,6 +225,8 @@ public class Chapter4 {
     }
     return true;
   }
+
+  private Integer lastValue = null;
 
   /**
    * Write an algorithm to find the "next" node (i.e., in-order successor) of a
