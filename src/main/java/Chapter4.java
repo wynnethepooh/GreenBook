@@ -289,7 +289,37 @@ public class Chapter4 {
    * @return first common ancestor
    */
   public TreeNode firstCommonAncestor(TreeNode n1, TreeNode n2) {
-    return null;
+    // Find depths of both
+    int depth1 = findDepth(n1);
+    int depth2 = findDepth(n2);
+
+    // Find difference of depths to move up in longer tree
+    int difference = Math.abs(depth1 - depth2);
+
+    TreeNode longer = depth1 > depth2 ? n1 : n2;
+    TreeNode shorter = longer == n1 ? n2 : n1;
+
+    // Go up longer tree for all of difference
+    while (difference > 0) {
+      longer = longer.parent;
+      difference--;
+    }
+
+    // Return first common ancestor
+    while (shorter != longer) {
+      shorter = shorter.parent;
+      longer = longer.parent;
+    }
+    return shorter;
+  }
+
+  private int findDepth(TreeNode node) {
+    int depth = 0;
+    while (node != null) {
+      depth++;
+      node = node.parent;
+    }
+    return depth;
   }
 
   /**
