@@ -167,7 +167,27 @@ public class Chapter4Test {
 
   @Test
   public void successor() {
+    // Tree:
+    //     2
+    //    / \
+    //   /   \
+    //  0     4
+    //   \   / \
+    //   1  3   5
+    TreeNode bst = new TreeNode(new Integer[] { 2, 0, 4, null, 1, 3, 5 });
+    TreeNode node2 = bst;
+    TreeNode node0 = bst.left;
+    TreeNode node4 = bst.right;
+    TreeNode node1 = node0.right;
+    TreeNode node3 = node4.left;
+    TreeNode node5 = node4.right;
 
+    // In-order successor of 4 is 5
+    assertEquals(node4, chapter4.successor(node5));
+    // In-order successor of 1 is 2
+    assertEquals(node1, chapter4.successor(node2));
+    // In-order successor of 3 is 4
+    assertEquals(node3, chapter4.successor(node4));
   }
 
   @Test
