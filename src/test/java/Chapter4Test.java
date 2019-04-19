@@ -255,6 +255,13 @@ public class Chapter4Test {
             "Failed to get in-order successor of nodes 1 and 7" +
             "\nexpected: 2" +
             "\nactual: " + ((result != null) ? result.data : "null"));
+
+    // First common ancestor of 1 and 0 is 0
+    result = chapter4.firstCommonAncestor(node1, node0);
+    assertEquals(node0, result,
+            "Failed to get in-order successor of nodes 1 and 0" +
+                    "\nexpected: 0" +
+                    "\nactual: " + ((result != null) ? result.data : "null"));
   }
 
   @Test
