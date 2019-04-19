@@ -116,7 +116,38 @@ public class Chapter4 {
    * @return list of linked lists of nodes at each depth
    */
   public ArrayList<LinkedList<TreeNode>> listOfDepths(TreeNode root) {
-    return null;
+
+    ArrayList<LinkedList<TreeNode>> levelLists = new ArrayList<>();
+    LinkedList<TreeNode> level = new LinkedList<>();
+
+    // Add root to queue of nodes to visit
+    level.add(root);
+
+    // While visit queue is not empty
+    while (level.peek() != null) {
+      // Add current queue to list of level queues
+      levelLists.add(level);
+
+      // Save current queue as a new queue
+      LinkedList<TreeNode> currentLevel = level;
+
+      // Reset level queue
+      level = new LinkedList<>();
+
+      // For each node in current level
+      for (TreeNode node : currentLevel) {
+
+        // Add node.left and node.right to level list and level queue
+        if (node.left != null) {
+          level.add(node.left);
+        }
+        if (node.right != null) {
+          level.add(node.right);
+        }
+      }
+    }
+
+    return levelLists;
   }
 
   /**
