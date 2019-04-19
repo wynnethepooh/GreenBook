@@ -176,18 +176,37 @@ public class Chapter4Test {
     //   1  3   5
     TreeNode bst = new TreeNode(new Integer[] { 2, 0, 4, null, 1, 3, 5 });
     TreeNode node2 = bst;
-    TreeNode node0 = bst.left;
-    TreeNode node4 = bst.right;
+    TreeNode node0 = node2.left;
+    node0.parent = node2;
+    TreeNode node4 = node2.right;
+    node4.parent = node2;
     TreeNode node1 = node0.right;
+    node1.parent = node0;
     TreeNode node3 = node4.left;
+    node3.parent = node4;
     TreeNode node5 = node4.right;
+    node5.parent = node4;
 
+    TreeNode result;
     // In-order successor of 4 is 5
-    assertEquals(node4, chapter4.successor(node5));
+    result = chapter4.successor(node4);
+    assertEquals(node5, result,
+            "Failed to get in-order successor of node 5" +
+            "\nexpected: 5" +
+            "\nactual: " + ((result != null) ? result.data : "null"));
+
     // In-order successor of 1 is 2
-    assertEquals(node1, chapter4.successor(node2));
+    result = chapter4.successor(node1);
+    assertEquals(node2, chapter4.successor(node1),
+            "Failed to get in-order successor of node 1" +
+            "\nexpected: 2" +
+            "\nactual: " + ((result != null) ? result.data : "null"));
+
     // In-order successor of 3 is 4
-    assertEquals(node3, chapter4.successor(node4));
+    assertEquals(node4, chapter4.successor(node3),
+            "Failed to get in-order successor of node 3" +
+            "\nexpected: 4" +
+            "\nactual: " + ((result != null) ? result.data : "null"));
   }
 
   @Test
