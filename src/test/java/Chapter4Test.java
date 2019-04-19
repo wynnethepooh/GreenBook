@@ -2,6 +2,10 @@ import org.junit.jupiter.api.Test;
 import util.GraphNode;
 import util.TreeNode;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -63,6 +67,53 @@ public class Chapter4Test {
   @Test
   public void listOfDepths() {
 
+    //     2
+    //    / \
+    //   /   \
+    //  0     4
+    //   \   / \
+    //   1   3  5
+    //      /
+    //     7
+    TreeNode tree = new TreeNode(
+            new Integer[] {2, 0, 4, null, 1, 3, 5, null, null, 7});
+    ArrayList<LinkedList<TreeNode>> expected = new ArrayList<>();
+    LinkedList<TreeNode> firstRow = new LinkedList<>();
+    firstRow.add(new TreeNode(2));
+    LinkedList<TreeNode> secondRow = new LinkedList<>();
+    secondRow.add(new TreeNode(0));
+    secondRow.add(new TreeNode(4));
+    LinkedList<TreeNode> thirdRow = new LinkedList<>();
+    thirdRow.add(new TreeNode(1));
+    thirdRow.add(new TreeNode(3));
+    thirdRow.add(new TreeNode(5));
+    LinkedList<TreeNode> fourthRow = new LinkedList<>();
+    fourthRow.add(new TreeNode(7));
+    expected.add(firstRow);
+    expected.add(secondRow);
+    expected.add(thirdRow);
+    expected.add(fourthRow);
+
+    ArrayList<LinkedList<TreeNode>> resultLists = chapter4.listOfDepths(tree);
+
+    // Assert sizes of lists
+    assertEquals(expected.size(), resultLists.size(),
+            "\nexpected result size: " + expected.size() +
+            "\nactual result size: " + resultLists.size());
+
+    for (int i = 0; i < resultLists.size(); i++) {
+      LinkedList<TreeNode> levelResult = resultLists.get(i);
+      LinkedList<TreeNode> levelExpected = expected.get(i);
+      // Assert each level list is as expected
+      assertEquals(levelExpected.size(), levelResult.size(),
+              "\nexpected level size: " + levelExpected.size() +
+              "\nactual level size: " + levelResult.size());
+
+      // Assert values are as expected
+      for (int j = 0; j < levelResult.size(); j++) {
+        assertEquals(levelExpected.get(j).data, levelResult.get(j).data);
+      }
+    }
   }
 
   @Test
