@@ -237,7 +237,26 @@ public class Chapter4 {
    * @return in-order successor of node
    */
   public TreeNode successor(TreeNode node) {
-    return null;
+
+    // If node has right subtree
+    if (node.right != null) {
+      TreeNode rightSubtree = node.right;
+
+      // Find leftmost node of right subtree
+      while (rightSubtree.left != null) {
+        rightSubtree = rightSubtree.left;
+      }
+      return rightSubtree;
+
+    } else {
+      TreeNode n = node;
+
+      // Else keep going up until node is left child of parent
+      while (n.parent != null && n != n.parent.left) {
+        n = n.parent;
+      }
+      return n.parent;
+    }
   }
 
   /**
