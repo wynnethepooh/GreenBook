@@ -216,7 +216,45 @@ public class Chapter4Test {
 
   @Test
   public void firstCommonAncestor() {
+    // Tree:
+    //     2
+    //    / \
+    //   /   \
+    //  0     4
+    //   \   / \
+    //   1  3   5
+    //           \
+    //            7
+    TreeNode bst = new TreeNode(new Integer[]
+            { 2, 0, 4, null, 1, 3, 5, null, null, null, null, null, 7});
+    TreeNode node2 = bst;
+    TreeNode node0 = node2.left;
+    node0.parent = node2;
+    TreeNode node4 = node2.right;
+    node4.parent = node2;
+    TreeNode node1 = node0.right;
+    node1.parent = node0;
+    TreeNode node3 = node4.left;
+    node3.parent = node4;
+    TreeNode node5 = node4.right;
+    node5.parent = node4;
+    TreeNode node7 = node5.right;
+    node7.parent = node5;
 
+    TreeNode result;
+    // First common ancestor of 3 and 7 is 4
+    result = chapter4.firstCommonAncestor(node3, node7);
+    assertEquals(node4, result,
+            "Failed to get first common ancestor of nodes 3 and 7" +
+            "\nexpected: 4" +
+            "\nactual: " + ((result != null) ? result.data : "null"));
+
+    // First common ancestor of 1 and 7 is 2
+    result = chapter4.firstCommonAncestor(node1, node7);
+    assertEquals(node2, result,
+            "Failed to get in-order successor of nodes 1 and 7" +
+            "\nexpected: 2" +
+            "\nactual: " + ((result != null) ? result.data : "null"));
   }
 
   @Test
