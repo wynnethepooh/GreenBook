@@ -118,7 +118,25 @@ public class Chapter4Test {
 
   @Test
   public void checkBalanced() {
+    // Good tree:
+    //     2
+    //    / \
+    //   2   3
+    //  /   / \
+    // 1   3   4
+    TreeNode balancedTree = new TreeNode(new Integer[]{2, 2, 3, 1, null, 3, 4});
+    assertTrue(chapter4.checkBalanced(balancedTree), "Validation of balanced tree failed");
 
+    // Bad Tree:
+    //    0
+    //     \
+    //      1
+    //     / \
+    //    2   2
+    //   /
+    //  3
+    TreeNode unbalancedTree = new TreeNode(new Integer[]{0, null, 1, 2, 2, 3});
+    assertFalse(chapter4.checkBalanced(unbalancedTree), "Validation of unbalanced tree failed");
   }
 
   @Test
