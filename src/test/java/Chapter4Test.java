@@ -281,7 +281,24 @@ public class Chapter4Test {
 
   @Test
   public void pathsWithSum() {
-
+    // Tree:
+    //      -2
+    //      / \
+    //     /   \
+    //    0     4
+    //   / \   / \
+    //  5  1  3  -1
+    //       /     \
+    //      0       2
+    //
+    // Value: 3
+    // Paths: 5
+    TreeNode tree = new TreeNode(new Integer[]
+            { -2, 0, 4, 5, 1, 3, -1, null, null, null, null, 0, null, null, 2});
+    int paths = chapter4.pathsWithSum(tree, 3);
+    assertEquals(5, paths, "Failed to find correct number of paths with sum 3" +
+            "\nexpected: 5" +
+            "\nactual: " + paths);
   }
 
   @Test
