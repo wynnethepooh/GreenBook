@@ -357,7 +357,37 @@ public class Chapter4 {
    * @return true if T2 isa subtree of T1
    */
   public boolean checkSubtree(TreeNode t1, TreeNode t2) {
-    return false;
+
+    if (t1 == null) {
+      return false;
+    } else if (t2 == null) {
+      return true;
+    }
+
+    // If t1 = t2, check rest of t1 and t2
+    if (t1.data == t2.data && checkRestOfTree(t1, t2)) {
+      return true;
+    }
+
+    // Check each node of t1 and check if equal to t2
+    return checkSubtree(t1.left, t2) || checkSubtree(t1.right, t2);
+  }
+
+  private boolean checkRestOfTree(TreeNode t1, TreeNode t2) {
+    if (t1 == null && t2 == null) {
+      // Reached leaf node
+      return true;
+    } else if (t1 == null || t2 == null) {
+      // If one of the nodes is null, return false
+      return false;
+    }
+
+    if (t1.data == t2.data) {
+      return checkRestOfTree(t1.left, t2.left)
+              && checkRestOfTree(t1.right, t2.right);
+    } else {
+      return false;
+    }
   }
 
   /**
