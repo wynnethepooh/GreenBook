@@ -271,7 +271,34 @@ public class Chapter4Test {
 
   @Test
   public void checkSubtree() {
+    // Tree:
+    //      -2
+    //      / \
+    //     /   \
+    //    0     4
+    //   / \   / \
+    //  5  1  3  -1
+    //       /     \
+    //      0       2
+    TreeNode tree = new TreeNode(new Integer[]
+            { -2, 0, 4, 5, 1, 3, -1, null, null, null, null, 0, null, null, 2});
+    boolean result;
 
+    // Subtree:
+    //      4
+    //     / \
+    //    3  -1
+    //   /     \
+    //  0       2
+    TreeNode subtree = new TreeNode(new Integer[] {4, 3, -1, 0, null, null, 2});
+    assertTrue(chapter4.checkSubtree(tree, subtree));
+
+    // Not subtree:
+    //      4
+    //     / \
+    //    3  -1
+    TreeNode notSubtree = new TreeNode(new Integer[] {4, 3, -1});
+    assertFalse(chapter4.checkSubtree(tree, notSubtree));
   }
 
   @Test
