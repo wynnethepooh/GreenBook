@@ -4,6 +4,7 @@ import util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -367,5 +368,36 @@ public class Chapter4Test {
 
     System.out.println(tree.toString());
     System.out.println(tree3.toString());
+  }
+
+  @Test
+  public void diagonalSums() {
+    /*
+     Tree:
+               1
+             /  \
+            /    \
+           2      3
+         /  \    / \
+        9    6  4  5
+         \  /  / \
+        10 11 12 7
+
+     The first diagonal includes 1 + 3 + 5 = 9
+     The second diagonal includes 2 + 6 + 4 + 7 = 19
+     The third diagonal includes 9 + 10 + 11 + 12 = 42
+     The output should be [9, 19, 42]
+
+     */
+
+    TreeNode tree = new TreeNode(
+            new Integer[] {1, 2, 3, 9, 6, 4, 5, null, 10, 11, null, 12, 7});
+    List<Integer> expected = new ArrayList<>();
+    expected.add(9);
+    expected.add(19);
+    expected.add(42);
+
+    List<Integer> result = chapter4.diagonalSums(tree);
+    assertEquals(expected, result);
   }
 }

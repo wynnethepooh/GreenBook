@@ -3,6 +3,11 @@ import util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+import static util.GraphNode.State.Unvisited;
+import static util.GraphNode.State.Visited;
 
 public class Chapter4 {
 
@@ -174,5 +179,36 @@ public class Chapter4 {
    */
   public int pathsWithSum(TreeNode root, int value) {
     return 0;
+  }
+
+  /*
+   * EXTRA PROBLEMS
+   */
+
+  /**
+   * Consider lines of slope -1 passing between nodes (dotted lines in below
+   * diagram). The diagonal sum in a binary tree is the sum of all node’s data
+   * lying between these lines. Given a Binary Tree, print all diagonal sums.
+   *
+   * Example:
+   *          1
+   *        /  \
+   *       /    \
+   *      2      3
+   *    /  \    / \
+   *   9    6  4  5
+   *    \  /  / \
+   *   10 11 12 7
+   *
+   * The first diagonal includes 1 + 3 + 5 = 9
+   * The second diagonal includes 2 + 6 + 4 + 7 = 19
+   * The third diagonal includes 9 + 10 + 11 + 12 = 42
+   * The output should be [9, 19, 42]
+   *
+   * @param root root node
+   * @return list of diagonal sums
+   */
+  public List<Integer> diagonalSums(TreeNode root) {
+    return null;
   }
 }
