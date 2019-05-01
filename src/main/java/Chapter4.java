@@ -500,6 +500,17 @@ public class Chapter4 {
    * @return true if tree has child sum property
    */
   public boolean childSum(TreeNode root) {
-    return false;
+    if (root == null || (root.left == null && root.right == null)) {
+      return true;
+    }
+
+    int sum = (root.left == null ? 0 : root.left.data) +
+            (root.right == null ? 0 : root.right.data);
+
+    if (sum == root.data) {
+      return childSum(root.left) && childSum(root.right);
+    } else {
+      return false;
+    }
   }
 }
