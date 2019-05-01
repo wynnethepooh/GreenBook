@@ -448,6 +448,30 @@ public class Chapter4 {
    * @return list of diagonal sums
    */
   public List<Integer> diagonalSums(TreeNode root) {
-    return null;
+    List<Integer> sums = new ArrayList<>();
+
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(root);
+
+    while (queue.size() > 0) {
+      Queue<TreeNode> diagonal = queue;
+      queue = new LinkedList<>();
+
+      int sum = 0;
+
+      while (diagonal.size() > 0) {
+        TreeNode node = diagonal.poll();
+        sum += node.data;
+
+        if (node.right != null) {
+          diagonal.add(node.right);
+        }
+        if (node.left != null) {
+          queue.add(node.left);
+        }
+      }
+      sums.add(sum);
+    }
+    return sums;
   }
 }
