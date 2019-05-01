@@ -474,4 +474,32 @@ public class Chapter4 {
     }
     return sums;
   }
+
+  /**
+   * Given a binary tree, write a function that returns true if the tree
+   * satisfies the following property:
+   *    For every node, data value must be equal to the sum of data values in
+   *    left and right children. Consider data value as 0 for NULL child.
+   *
+   * Example:
+   *  Valid tree:
+   *        10
+   *       /  \
+   *      8   2
+   *     / \   \
+   *    3  5   2
+   *
+   *  Invalid tree:
+   *        10
+   *       /  \
+   *      7   3
+   *     / \   \
+   *    5  3   3
+   *
+   * @param root root of tree
+   * @return true if tree has child sum property
+   */
+  public boolean childSum(TreeNode root) {
+    return false;
+  }
 }
