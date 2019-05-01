@@ -400,4 +400,37 @@ public class Chapter4Test {
     List<Integer> result = chapter4.diagonalSums(tree);
     assertEquals(expected, result);
   }
+
+  @Test
+  public void childSum() {
+    /*
+       Valid tree:
+
+             10
+            /  \
+           8    2
+          / \    \
+         3   5    2
+     */
+    TreeNode valid = new TreeNode(
+            new Integer[] { 10, 8, 2, 3, 5, null, 2 });
+
+    /*
+       Invalid tree:
+
+             10
+            /  \
+           7    3
+          / \    \
+         5   3    3
+
+     */
+    TreeNode invalid = new TreeNode(
+            new Integer[] { 10, 7, 3, 5, 3, null, 3 });
+
+    assertTrue(chapter4.childSum(valid),
+            valid.toString() + " should be valid");
+    assertFalse(chapter4.childSum(invalid),
+            invalid.toString() + " should be invalid");
+  }
 }
