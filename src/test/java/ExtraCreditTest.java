@@ -99,4 +99,26 @@ public class ExtraCreditTest {
             "\n" + Arrays.deepToString(grid).replace("], ", "]\n")
                     + "\nOutput should be 3 islands");
   }
+
+  @Test
+  public void rightSideView() {
+    /*
+     Tree:
+
+           1
+          / \
+         2  3
+         \   \
+         5   4
+        /
+       7
+
+      Expected output: [1, 3, 4, 7]
+     */
+    TreeNode tree = new TreeNode(new Integer[]
+            { 1, 2, 3, null, 5, null, 4, 7 });
+    List<Integer> expected = Arrays.asList(1, 3, 4, 7);
+
+    assertEquals(expected, ec.rightSideView(tree));
+  }
 }

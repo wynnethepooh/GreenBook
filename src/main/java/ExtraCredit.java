@@ -91,4 +91,28 @@ public class ExtraCredit {
   public int numberOfIslands(char[][] grid) {
     return 0;
   }
+
+  /**
+   * Given a binary tree, imagine yourself standing on the right side of it,
+   * return the values of the nodes you can see ordered from top to bottom.
+   *
+   * Example:
+   *
+   * Input: [1,2,3,null,5,null,4,7]
+   *      1
+   *     / \
+   *    2  3
+   *    \   \
+   *    5   4
+   *   /
+   *  7
+   *
+   * Output: [1, 3, 4, 7]
+   *
+   * @param root root of tree
+   * @return right view of tree
+   */
+  public List<Integer> rightSideView(TreeNode root) {
+    return null;
+  }
 }
