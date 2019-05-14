@@ -127,6 +127,50 @@ public class ExtraCredit {
    * @return number of islands
    */
   public int numberOfIslands(char[][] grid) {
-    return 0;
+    int count = 0;
+
+    if (grid.length == 0) {
+      return count;
+    }
+
+    boolean[][] visited = new boolean[grid.length][grid[0].length];
+
+    // Go through rows and columns
+    for (int row = 0; row < grid.length; row++) {
+      for (int col = 0; col < grid[0].length; col++) {
+        // If item is land and has not been visited, DFS on its neighbors
+        if (grid[row][col] == '1' && !visited[row][col]) {
+          visitNeighbors(grid, visited, row, col);
+          count++;
+        }
+      }
+    }
+
+    return count;
+  }
+
+  private void visitNeighbors(char[][] grid,
+                              boolean[][] visited,
+                              int row,
+                              int col) {
+    if (grid[row][col] == '0' || visited[row][col]) {
+      return;
+    }
+
+    visited[row][col] = true;
+
+    // Recurse on top, bottom, left, right
+    if (row > 0) {
+      visitNeighbors(grid, visited, row - 1, col);
+    }
+    if (row < grid.length - 1) {
+      visitNeighbors(grid, visited, row + 1, col);
+    }
+    if (col > 0) {
+      visitNeighbors(grid, visited, row, col - 1);
+    }
+    if (col < grid[0].length - 1) {
+      visitNeighbors(grid, visited, row, col + 1);
+    }
   }
 }
