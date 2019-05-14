@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 import util.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -74,5 +75,28 @@ public class ExtraCreditTest {
             valid.toString() + " should be valid");
     assertFalse(ec.childSum(invalid),
             invalid.toString() + " should be invalid");
+  }
+
+  @Test
+  public void numberOfIslands() {
+    char[][] grid = new char[][] {
+            { '1','1','1','1','0' },
+            { '1','1','0','1','0' },
+            { '1','1','0','0','0' },
+            { '0','0','0','0','0' }};
+    int result = ec.numberOfIslands(grid);
+    assertEquals(1, result,
+            "\n" + Arrays.deepToString(grid).replace("], ", "]\n")
+                    + "\nOutput should be 1 island");
+
+    grid = new char[][] {
+            { '1','1','0','0','0' },
+            { '1','1','0','0','0' },
+            { '0','0','1','0','0' },
+            { '0','0','0','1','1' }};
+    result = ec.numberOfIslands(grid);
+    assertEquals(3, result,
+            "\n" + Arrays.deepToString(grid).replace("], ", "]\n")
+                    + "\nOutput should be 3 islands");
   }
 }
