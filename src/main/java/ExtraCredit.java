@@ -195,6 +195,27 @@ public class ExtraCredit {
    * @return right view of tree
    */
   public List<Integer> rightSideView(TreeNode root) {
-    return null;
+    List<Integer> result = new ArrayList<>();
+    Queue<TreeNode> nextLevel = new LinkedList<>();
+    nextLevel.add(root);
+
+    while (!nextLevel.isEmpty()) {
+      Queue<TreeNode> currentLevel = nextLevel;
+      nextLevel = new LinkedList<>();
+
+      TreeNode node = null;
+
+      while (currentLevel.peek() != null) {
+        node = currentLevel.poll();
+        if (node.left != null) {
+          nextLevel.add(node.left);
+        }
+        if (node.right != null) {
+          nextLevel.add(node.right);
+        }
+      }
+      result.add(node.data);
+    }
+    return result;
   }
 }
