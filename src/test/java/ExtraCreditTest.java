@@ -119,6 +119,23 @@ public class ExtraCreditTest {
             { 1, 2, 3, null, 5, null, 4, 7 });
     List<Integer> expected = Arrays.asList(1, 3, 4, 7);
 
-    assertEquals(expected, ec.rightSideView(tree));
+    assertEquals(expected, ec.rightSideView(tree),
+            tree.toString() + " should have returned list " +
+            expected.toString());
+  }
+
+  @Test
+  public void countCombinationStrings() {
+    int expected = 19;
+    int length = 3;
+    assertEquals(expected, ec.countCombinationStrings(length),
+            "There should be " + expected + " possible combinations of " +
+                    "string length 3");
+
+    expected = 39;
+    length = 4;
+    assertEquals(expected, ec.countCombinationStrings(length),
+            "There should be " + expected + " possible combinations of " +
+                    "string length 3");
   }
 }
