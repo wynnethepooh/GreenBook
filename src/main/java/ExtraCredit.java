@@ -1,9 +1,6 @@
 import util.TreeNode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class ExtraCredit {
 
@@ -250,6 +247,41 @@ public class ExtraCredit {
    * @return count of strings that can be formed under constraints
    */
   public int countCombinationStrings(int n) {
-    return 0;
+    int[][][] dp = new int[n+1][2][3];
+    initializeDP(dp);
+    return countStr(n, 1, 2, dp);
+  }
+
+  private void initializeDP(int[][][] dp) {
+    for (int n = 0; n < dp.length; n++) {
+      for (int b = 0; b < dp[n].length; b++) {
+        Arrays.fill(dp[n][b], -1);
+      }
+    }
+  }
+
+  private int countStr(int n,
+                       int b,
+                       int c,
+                       int[][][] dp) {
+    // Base cases
+    if (b < 0 || c < 0) {
+      return 0; // is not valid
+    }
+    if (n == 0 || (b == 0 && c == 0)) {
+      return 1; // valid; can contain 1 or less b and 2 or less c
+    }
+
+    if (dp[n][b][c] != -1) {
+      return dp[n][b][c];
+    }
+
+    int result = 0;
+    result += countStr(n - 1, b, c, dp);
+    result += countStr(n - 1, b - 1, c, dp);
+    result += countStr(n - 1, b, c - 1, dp);
+
+    dp[n][b][c] = result;
+    return result;
   }
 }
