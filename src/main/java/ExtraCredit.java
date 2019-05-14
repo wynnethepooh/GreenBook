@@ -218,4 +218,38 @@ public class ExtraCredit {
     }
     return result;
   }
+
+  /**
+   * Count of strings that can be formed using a, b and c under given
+   * constraints.
+   *
+   * Given a length n, count the number of strings of length n that can be made
+   * using ‘a’, ‘b’ and ‘c’ with at-most one ‘b’ and two ‘c’s allowed.
+   *
+   * Examples :
+   *
+   *  Input : n = 3
+   *  Output : 19
+   *
+   *  Below strings follow given constraints:
+   *    aaa   bca
+   *    aab   bcc
+   *    aac   caa
+   *    aba   cab
+   *    abc   cac
+   *    aca   cba
+   *    acb   cbc
+   *    acc   cca
+   *    baa   ccb
+   *    bac
+   *
+   *  Input  : n = 4
+   *  Output : 39
+   *
+   * @param n string length
+   * @return count of strings that can be formed under constraints
+   */
+  public int countCombinationStrings(int n) {
+    return 0;
+  }
 }
