@@ -1,6 +1,9 @@
 import util.TreeNode;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class ExtraCredit {
 
@@ -28,7 +31,31 @@ public class ExtraCredit {
    * @return list of diagonal sums
    */
   public List<Integer> diagonalSums(TreeNode root) {
-    return null;
+    List<Integer> sums = new ArrayList<>();
+
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(root);
+
+    while (queue.size() > 0) {
+      Queue<TreeNode> diagonal = queue;
+      queue = new LinkedList<>();
+
+      int sum = 0;
+
+      while (diagonal.size() > 0) {
+        TreeNode node = diagonal.poll();
+        sum += node.data;
+
+        if (node.right != null) {
+          diagonal.add(node.right);
+        }
+        if (node.left != null) {
+          queue.add(node.left);
+        }
+      }
+      sums.add(sum);
+    }
+    return sums;
   }
 
   /**
@@ -56,6 +83,17 @@ public class ExtraCredit {
    * @return true if tree has child sum property
    */
   public boolean childSum(TreeNode root) {
-    return false;
+    if (root == null || (root.left == null && root.right == null)) {
+      return true;
+    }
+
+    int sum = (root.left == null ? 0 : root.left.data) +
+            (root.right == null ? 0 : root.right.data);
+
+    if (sum == root.data) {
+      return childSum(root.left) && childSum(root.right);
+    } else {
+      return false;
+    }
   }
 }
