@@ -345,6 +345,34 @@ public class ExtraCredit {
    * @return true if valid sudoku board
    */
   public boolean validateSudoku(char[][] board) {
-    return false;
+
+    for (int row = 0; row < board.length; row++) {
+      Set<Character> rows = new HashSet<>();
+      Set<Character> cols = new HashSet<>();
+      Set<Character> squares = new HashSet<>();
+
+      for (int col = 0; col < board[0].length; col++) {
+        // Add num to rows set and if it is not unique, return false
+        if (board[row][col] != '.' && !rows.add(board[row][col])) {
+          return false;
+        }
+
+        // Add num to cols set and if it is not unique, return false
+        if (board[col][row] != '.' && !cols.add(board[col][row])) {
+          return false;
+        }
+
+        // Add num to squares set and if it is not unique, return false
+        int subRow = (row / 3) * 3;
+        int subCol = (row % 3) * 3;
+
+        if (board[subRow + col/3][subCol + col%3] != '.'
+                && !squares.add(board[subRow + col/3][subCol + col%3])) {
+          return false;
+        }
+      }
+    }
+
+    return true;
   }
 }
