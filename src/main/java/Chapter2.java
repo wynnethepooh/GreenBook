@@ -152,7 +152,29 @@ public class Chapter2 {
    * @return sum as linked list
    */
   public LinkedListNode sumLists(LinkedListNode d1, LinkedListNode d2) {
-    return null;
+    return sumListsHelper(d1, d2, 0);
+  }
+
+  public LinkedListNode sumListsHelper(LinkedListNode d1, LinkedListNode d2, int carry) {
+    if (d1 == null && d2 == null) {
+      return null;
+    }
+
+    // If d1 and d2 are not null, add digits and carry
+    int sum = (d1 != null ? d1.data : 0)
+            + (d2 != null ? d2.data : 0)
+            + carry;
+
+    // If sum/10 >= 1, set carry to sum % 10
+    if (sum >= 10) {
+      carry = 1;
+      sum %= 10;
+    }
+
+    LinkedListNode sumNode = new LinkedListNode(sum);
+    // Set next to recursive sum of d1.next + d2.next + carry
+    sumNode.next = sumListsHelper(d1.next, d2.next, carry);
+    return sumNode;
   }
 
   /**
