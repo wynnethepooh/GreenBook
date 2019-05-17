@@ -17,6 +17,14 @@ public class LinkedListNode {
     n.next = end;
   }
 
+  public void appendToTail(LinkedListNode node) {
+    LinkedListNode n = this;
+    while (n.next != null) {
+      n = n.next;
+    }
+    n.next = node;
+  }
+
   /**
    * Compares values of linked list starting at this node with other linked list.
    *
