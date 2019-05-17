@@ -180,14 +180,33 @@ public class Chapter2Test {
     d2.appendToTail(9);
     d2.appendToTail(5);
 
-    LinkedListNode sum = new LinkedListNode(9);
-    sum.appendToTail(1);
-    sum.appendToTail(2);
+    LinkedListNode expected = new LinkedListNode(9);
+    expected.appendToTail(1);
+    expected.appendToTail(2);
 
     LinkedListNode result = chapter2.sumListsForwardOrder(d1, d2);
-    assertTrue(sum.equalsList(result),
-            "\nexpected: " + sum.getListString() +
+    assertTrue(expected.equalsList(result),
+            "\nexpected: " + expected.getListString() +
             "\nactual: " + result.getListString());
+
+    d1 = new LinkedListNode(2);
+    d1.appendToTail(6);
+    d1.appendToTail(1);
+    d1.appendToTail(7);
+
+    d2 = new LinkedListNode(2);
+    d2.appendToTail(9);
+    d2.appendToTail(5);
+
+    expected = new LinkedListNode(2);
+    expected.appendToTail(9);
+    expected.appendToTail(1);
+    expected.appendToTail(2);
+
+    result = chapter2.sumListsForwardOrder(d1, d2);
+    assertTrue(expected.equalsList(result),
+            "\nexpected: " + expected.getListString() +
+                    "\nactual: " + result.getListString());
   }
 
   @Test
@@ -207,7 +226,28 @@ public class Chapter2Test {
 
   @Test
   public void intersection() {
+    LinkedListNode first = new LinkedListNode(3);
+    first.appendToTail(1);
+    first.appendToTail(5);
+    first.appendToTail(9);
 
+    LinkedListNode second = new LinkedListNode(4);
+    second.appendToTail(6);
+
+    assertNull(chapter2.intersection(first, second),
+            "\n" + first.getListString() + " and " +
+            "\n" + second.getListString() + " do not intersect.");
+
+    LinkedListNode same = new LinkedListNode(7);
+    same.appendToTail(2);
+    same.appendToTail(1);
+
+    first.appendToTail(same);
+    second.appendToTail(same);
+
+    assertEquals(same, chapter2.intersection(first, second),
+            "\n" + first.getListString() + " and " +
+            "\n" + second.getListString() + " intersect at 7.");
   }
 
   @Test
