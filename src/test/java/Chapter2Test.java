@@ -230,7 +230,6 @@ public class Chapter2Test {
             input.getListString() + " is a palindrome");
   }
 
-  @Disabled
   @Test
   public void intersection() {
     LinkedListNode first = new LinkedListNode(3);

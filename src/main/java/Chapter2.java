@@ -211,7 +211,43 @@ public class Chapter2 {
    * @return intersecting node
    */
   public LinkedListNode intersection(LinkedListNode h1, LinkedListNode h2) {
-    return null;
+    if (h1 == null || h2 == null) {
+      return null;
+    }
+    int len1 = 1, len2 = 1;
+
+    // Get length of both lists and get diff
+    LinkedListNode list1 = h1;
+    LinkedListNode list2 = h2;
+    while (list1.next != null) {
+      list1 = list1.next;
+      len1++;
+    }
+    while (list2.next != null) {
+      list2 = list2.next;
+      len2++;
+    }
+
+    // If the last nodes are not equal, they do not intersect
+    if (list1 != list2) {
+      return null;
+    }
+
+    int diff = Math.abs(len1 - len2);
+    LinkedListNode longList = (len1 > len2) ? h1 : h2;
+    LinkedListNode shortList = (len1 > len2) ? h2 : h1;
+    // Go diff amount into longer list
+    while (diff > 0) {
+      longList = longList.next;
+      diff--;
+    }
+    // Return first node that equals
+    while (longList != shortList) {
+      longList = longList.next;
+      shortList = shortList.next;
+    }
+
+    return longList;
   }
 
   /**
