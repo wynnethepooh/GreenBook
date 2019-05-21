@@ -1,20 +1,28 @@
 package util;
 
-public class Node {
-  public Node next = null;
+public class LinkedListNode {
+  public LinkedListNode next = null;
   public int data;
 
-  public Node(int d) {
+  public LinkedListNode(int d) {
     data = d;
   }
 
   public void appendToTail(int d) {
-    Node end = new Node(d);
-    Node n = this;
+    LinkedListNode end = new LinkedListNode(d);
+    LinkedListNode n = this;
     while (n.next != null) {
       n = n.next;
     }
     n.next = end;
+  }
+
+  public void appendToTail(LinkedListNode node) {
+    LinkedListNode n = this;
+    while (n.next != null) {
+      n = n.next;
+    }
+    n.next = node;
   }
 
   /**
@@ -23,9 +31,9 @@ public class Node {
    * @param head head of other linked list
    * @return true if this linked list equals other linked list
    */
-  public boolean equalsList(Node head) {
-    Node curr = this;
-    Node other = head;
+  public boolean equalsList(LinkedListNode head) {
+    LinkedListNode curr = this;
+    LinkedListNode other = head;
 
     while (curr != null && other != null) {
       if (curr.data != other.data) {
@@ -44,7 +52,7 @@ public class Node {
    * @return list as string
    */
   public String getListString() {
-    Node curr = this;
+    LinkedListNode curr = this;
     StringBuilder list = new StringBuilder();
     list.append(curr.data);
     curr = curr.next;

@@ -204,6 +204,29 @@ public class Chapter1Test {
                 "actual:\n" + matrixString(matrix));
       }
     }
+
+    matrix = new int[][]{
+            {1, 2, 3, 4},
+            {5, 6, 0, 8},
+            {9, 10, 11, 12}
+    };
+
+    zeroed = new int[][]{
+            {1, 2, 0, 4},
+            {0, 0, 0, 0},
+            {9, 10, 0, 12}
+    };
+
+    System.out.println(matrixString(matrix));
+    chapter1.zeroMatrix(matrix);
+    System.out.println(matrixString(matrix));
+
+    for (int row = 0; row < matrix.length; row++) {
+      if (!Arrays.equals(zeroed[row], matrix[row])) {
+        fail("expected:\n" + matrixString(zeroed) + "\n" +
+                "actual:\n" + matrixString(matrix));
+      }
+    }
   }
 
   @Disabled

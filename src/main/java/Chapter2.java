@@ -1,4 +1,4 @@
-import util.Node;
+import util.LinkedListNode;
 
 public class Chapter2 {
 
@@ -6,10 +6,9 @@ public class Chapter2 {
    * Write code to remove duplicates from an unsorted linked list.
    *
    * @param head head of linked list
-   * @return linked list with removed duplicates
    */
-  public Node removeDups(Node head) {
-    return null;
+  public void removeDups(LinkedListNode head) {
+
   }
 
   /**
@@ -18,10 +17,9 @@ public class Chapter2 {
    * allowed?
    *
    * @param head head of linked list
-   * @return linked list with removed duplicates
    */
-  public Node removeDupsNoBuffer(Node head) {
-    return null;
+  public void removeDupsNoBuffer(LinkedListNode head) {
+
   }
 
   /**
@@ -32,7 +30,7 @@ public class Chapter2 {
    * @param k number
    * @return Kth to last element
    */
-  public Node returnKthToLast(Node head, int k) {
+  public LinkedListNode returnKthToLast(LinkedListNode head, int k) {
     return null;
   }
 
@@ -49,7 +47,7 @@ public class Chapter2 {
    * @param node node
    * @return true if node has been deleted
    */
-  public boolean deleteMiddleNode(Node node) {
+  public boolean deleteMiddleNode(LinkedListNode node) {
     return false;
   }
 
@@ -65,10 +63,9 @@ public class Chapter2 {
    *
    * @param head head of linked list
    * @param partition partition value
-   * @return paritioned linked list
    */
-  public Node partition(Node head, int partition) {
-    return null;
+  public LinkedListNode partition(LinkedListNode head, int partition) {
+    return head;
   }
 
   /**
@@ -85,7 +82,7 @@ public class Chapter2 {
    * @param d2 digit 2
    * @return sum as linked list
    */
-  public Node sumLists(Node d1, Node d2) {
+  public LinkedListNode sumLists(LinkedListNode d1, LinkedListNode d2) {
     return null;
   }
 
@@ -97,7 +94,7 @@ public class Chapter2 {
    * @param d2 digit 2
    * @return sum as linked list
    */
-  public Node sumListsForwardOrder(Node d1, Node d2) {
+  public LinkedListNode sumListsForwardOrder(LinkedListNode d1, LinkedListNode d2) {
     return null;
   }
 
@@ -107,7 +104,7 @@ public class Chapter2 {
    * @param head head of linked list
    * @return true if linked list is a palindrome
    */
-  public boolean palindrome(Node head) {
+  public boolean palindrome(LinkedListNode head) {
     return false;
   }
 
@@ -122,7 +119,7 @@ public class Chapter2 {
    * @param h2 head of second linked list
    * @return intersecting node
    */
-  public Node intersection(Node h1, Node h2) {
+  public LinkedListNode intersection(LinkedListNode h1, LinkedListNode h2) {
     return null;
   }
 
@@ -141,7 +138,7 @@ public class Chapter2 {
    * @param head head of linked list
    * @return node at beginning of loop
    */
-  public Node loopDetection(Node head) {
+  public LinkedListNode loopDetection(LinkedListNode head) {
     return null;
   }
 
