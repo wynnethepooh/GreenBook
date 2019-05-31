@@ -375,4 +375,30 @@ public class ExtraCredit {
 
     return true;
   }
+
+  /**
+   * Given a Binary Search Tree (BST) and a range, count number of nodes that
+   * lie in the given range.
+   *
+   * Examples:
+   *
+   * Input:
+   *      10
+   *     /  \
+   *    5   50
+   *   /   /  \
+   *  1   40  100
+   *
+   * Range: [5, 45]
+   *
+   * Output:  3
+   *
+   * @param root root of tree
+   * @param start start of range
+   * @param end end of range
+   * @return
+   */
+  public int countNodesInRange(TreeNode root, int start, int end) {
+    return 0;
+  }
 }
