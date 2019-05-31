@@ -167,4 +167,22 @@ public class ExtraCreditTest {
     };
     assertFalse(ec.validateSudoku(invalid));
   }
+
+  @Test
+  public void countNodesInRange() {
+    /*
+     * Input:
+     *       10
+     *      /  \
+     *     5    50
+     *    /    /  \
+     *   1    40  100
+     *
+     * Range: [5, 45]
+     *
+     * Output: 3
+     */
+    TreeNode tree = new TreeNode(new Integer[]{10, 5, 50, 1, null, 40, 100});
+    assertEquals(3, ec.countNodesInRange(tree, 5, 45));
+  }
 }
