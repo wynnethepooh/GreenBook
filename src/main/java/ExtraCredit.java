@@ -399,6 +399,26 @@ public class ExtraCredit {
    * @return
    */
   public int countNodesInRange(TreeNode root, int start, int end) {
-    return 0;
+    return countNodes(root, start, end, 0);
+  }
+
+  private int countNodes(TreeNode root, int start, int end, int count) {
+    // If node is null, return current count
+    if (root == null) {
+      return count;
+    }
+
+    // Get count in left subtree
+    count = countNodes(root.left, start, end, count);
+
+    // If value is between start and end, increment count
+    if (root.data >= start && root.data <= end) {
+      count++;
+    }
+
+    // Get count in right subtree
+    count = countNodes(root.right, start, end, count);
+
+    return count;
   }
 }
