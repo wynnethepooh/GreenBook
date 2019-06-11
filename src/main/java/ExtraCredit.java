@@ -564,4 +564,29 @@ public class ExtraCredit {
     // return current + max(left, right)
     return current.data + Math.max(left, right);
   }
+
+  /**
+   * Find kth smallest element in BST (Order Statistics in BST)
+   *
+   * Given root of binary search tree and K as input, find kth smallest element
+   * in the BST.
+   *
+   * For example, in the following BST, if k = 3, then output should be 10, and
+   * if k = 5, then output should be 14.
+   *
+   *        20
+   *       /  \
+   *      8   22
+   *     / \
+   *    4  12
+   *      /  \
+   *     10  14
+   *
+   * @param root root of binary search tree
+   * @param k k
+   * @return kth smallest element in tree
+   */
+  public int returnKthSmallestBST(TreeNode root, int k) {
+    return 0;
+  }
 }

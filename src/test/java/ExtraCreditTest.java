@@ -254,4 +254,26 @@ public class ExtraCreditTest {
 
     assertEquals(27, ec.maxSumBetweenLeaves(tree));
   }
+
+  @Test
+  public void returnKthSmallestBST() {
+    /*
+     *        20
+     *       /  \
+     *      8   22
+     *     / \
+     *    4  12
+     *      /  \
+     *     10  14
+     */
+    TreeNode tree = new TreeNode(new Integer[] {
+            20,
+            8, 22,
+            4, 12, null, null,
+            null, null, 10, 14
+    });
+
+    assertEquals(10, ec.returnKthSmallestBST(tree, 3));
+    assertEquals(14, ec.returnKthSmallestBST(tree, 5));
+  }
 }
