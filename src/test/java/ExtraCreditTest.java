@@ -209,6 +209,24 @@ public class ExtraCreditTest {
   }
 
   @Test
+  public void maxPathSum() {
+    /*
+     *        10
+     *       /  \
+     *     -2   7
+     *     / \
+     *    8  -4
+     */
+    TreeNode tree = new TreeNode(new Integer[] {
+            10,
+            -2, 7,
+            8, -4
+    });
+
+    assertEquals(17, ec.maxPathSum(tree));
+  }
+
+  @Test
   public void maxSumBetweenLeaves() {
     /*
      *        -15
