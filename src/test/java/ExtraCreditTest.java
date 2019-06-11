@@ -222,8 +222,10 @@ public class ExtraCreditTest {
             -2, 7,
             8, -4
     });
+    Integer[] expectedArray = new Integer[] { 7, 10 };
+    List<Integer> expected = Arrays.asList(expectedArray);
 
-    assertEquals(17, ec.maxPathSum(tree));
+    assertEquals(expected, ec.maxSumPath(tree));
   }
 
   @Test
