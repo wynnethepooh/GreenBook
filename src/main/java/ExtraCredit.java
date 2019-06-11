@@ -456,7 +456,7 @@ public class ExtraCredit {
   }
 
   /**
-   * Find the maximum path sum from leaf to root in a binary tree.
+   * Find the maximum sum leaf to root path in a binary tree.
    *
    * Given a binary tree, find the maximum sum path from a leaf to root. For
    * example, in the following tree, there are three leaf to root paths
@@ -473,8 +473,8 @@ public class ExtraCredit {
    * @param root root of tree
    * @return maximum path sum from leaf to root
    */
-  public int maxPathSum(TreeNode root) {
-    return Integer.MIN_VALUE;
+  public List<Integer> maxSumPath(TreeNode root) {
+    return null;
   }
 
   /**
