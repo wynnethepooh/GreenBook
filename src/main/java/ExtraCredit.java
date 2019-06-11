@@ -456,9 +456,31 @@ public class ExtraCredit {
   }
 
   /**
+   * Find the maximum path sum from leaf to root in a binary tree.
+   *
+   * Given a binary tree, find the maximum sum path from a leaf to root. For
+   * example, in the following tree, there are three leaf to root paths
+   * 8 -> -2 -> 10, -4 -> -2 -> 10 and 7 -> 10. The sums of these three paths
+   * are 16, 4 and 17 respectively. The maximum of them is 17 and the path for
+   * maximum is 7 -> 10.
+   *
+   *        10
+   *       /  \
+   *     -2   7
+   *     / \
+   *    8  -4
+   *
+   * @param root root of tree
+   * @return maximum path sum from leaf to root
+   */
+  public int maxPathSum(TreeNode root) {
+    return Integer.MIN_VALUE;
+  }
+
+  /**
    * Find the maximum path sum between two leaves of a binary tree.
    *
-   * Given a binary tree in which each node element contains a number. Find the
+   * Given a binary tree in which each node element contains a number, find the
    * maximum possible sum from one leaf node to another. The maximum sum path
    * may or may not go through root. For example, in the following binary tree,
    * the maximum sum is 27(3 + 6 + 9 + 0 – 1 + 10). Expected time complexity
@@ -477,6 +499,9 @@ public class ExtraCredit {
    *              10
    *
    * If one side of root is empty, then function should return minus infinite.
+   *
+   * @param root root of tree
+   * @return maximum path sum between any two leaves
    */
   public int maxSumBetweenLeaves(TreeNode root) {
     maxSumBetweenLeavesHelper(root);
