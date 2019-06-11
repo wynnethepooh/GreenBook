@@ -474,7 +474,41 @@ public class ExtraCredit {
    * @return maximum path sum from leaf to root
    */
   public List<Integer> maxSumPath(TreeNode root) {
-    return null;
+    List<Integer> result = new ArrayList<>();
+    maxSumPathHelper(root, 0, result);
+    return result;
+  }
+
+  int maxSumPathVal = Integer.MIN_VALUE;
+
+  private void maxSumPathHelper(TreeNode node, int sum, List<Integer> result) {
+    // Base case: null or leaf; if null, return 0, if leaf, return leaf value
+    if (node == null) {
+      return;
+    }
+
+    // Add current data to sum
+    int currentSum = node.data + sum;
+    // If node is leaf and sum > maxSumPathVal
+    if (node.left == null && node.right == null) {
+      if (currentSum > maxSumPathVal){
+        // update maxSumPathVal
+        maxSumPathVal = currentSum;
+        // reset result list and add leaf data
+        result.clear();
+        result.add(node.data);
+      }
+      return;
+    }
+
+    // Recurse on left and right
+    maxSumPathHelper(node.left, currentSum, result);
+    maxSumPathHelper(node.right, currentSum, result);
+
+    // If result isn't empty, add current data to result (moving up tree)
+    if (!result.isEmpty()) {
+      result.add(node.data);
+    }
   }
 
   /**
