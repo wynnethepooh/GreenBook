@@ -421,4 +421,16 @@ public class ExtraCredit {
 
     return count;
   }
+
+  /**
+   * Given an NxM matrix, return a matrix with the number of paths from the top
+   * left corner to any position.
+   *
+   * @param matrix NxM matrix
+   * @return matrix with each position containing number of paths to that
+   * position
+   */
+  public int[][] countPathsInMatrix(int[][] matrix) {
+    return matrix;
+  }
 }

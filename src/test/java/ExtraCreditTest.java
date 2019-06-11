@@ -185,4 +185,26 @@ public class ExtraCreditTest {
     TreeNode tree = new TreeNode(new Integer[]{10, 5, 50, 1, null, 40, 100});
     assertEquals(3, ec.countNodesInRange(tree, 5, 45));
   }
+
+  @Test
+  public void countPathsInMatrix() {
+    /*
+    1 1 1 1
+    1 2 3 4
+    1 3 6 10
+     */
+    int[][] matrix = new int[3][4];
+    int[][] expected = new int[][] {
+            { 1, 1, 1, 1 },
+            { 1, 2, 3, 4 },
+            { 1, 3, 6, 10}
+    };
+    int[][] result = ec.countPathsInMatrix(matrix);
+
+    System.out.println("\nExpected: \n" + Arrays.deepToString(expected));
+    System.out.println("\nActual: \n" + Arrays.deepToString(result));
+    for (int row = 0; row < matrix.length; row++) {
+      assertTrue(Arrays.equals(expected[row], result[row]));
+    }
+  }
 }
