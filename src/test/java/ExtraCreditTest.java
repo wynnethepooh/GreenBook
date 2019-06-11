@@ -207,4 +207,31 @@ public class ExtraCreditTest {
       assertTrue(Arrays.equals(expected[row], result[row]));
     }
   }
+
+  @Test
+  public void maxSumBetweenLeaves() {
+    /*
+     *        -15
+     *        /  \
+     *       5    6
+     *      / \  / \
+     *    -8  1  3  9
+     *    / \        \
+     *   2  6        0
+     *              / \
+     *             4  -1
+     *                /
+     *               10
+     */
+    TreeNode tree = new TreeNode(new Integer[] {
+            -15,
+            5, 6,
+            -8, 1, 3, 9,
+            2, 6, null, null, null, null, null, 0,
+            null, null, null, null, 4, -1,
+            null, null, 10
+    });
+
+    assertEquals(27, ec.maxSumBetweenLeaves(tree));
+  }
 }
