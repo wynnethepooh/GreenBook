@@ -479,6 +479,30 @@ public class ExtraCredit {
    * If one side of root is empty, then function should return minus infinite.
    */
   public int maxSumBetweenLeaves(TreeNode root) {
-    return Integer.MIN_VALUE;
+    maxSumBetweenLeavesHelper(root);
+    return maxSumBetweenLeaves;
+  }
+
+  int maxSumBetweenLeaves = Integer.MIN_VALUE;
+
+  private int maxSumBetweenLeavesHelper(TreeNode current) {
+    // Base case: leaf node (no left or right), return value of leaf
+    if (current == null) {
+      return 0;
+    }
+    if (current.left == null && current.right == null) {
+      return current.data;
+    }
+
+    // Get left and right path sums
+    int left = maxSumBetweenLeavesHelper(current.left);
+    int right = maxSumBetweenLeavesHelper(current.right);
+
+    // At each node, set max of max and (left + right max path sums + current)
+    maxSumBetweenLeaves = Math.max(
+            maxSumBetweenLeaves,
+            left + right + current.data);
+    // return current + max(left, right)
+    return current.data + Math.max(left, right);
   }
 }
