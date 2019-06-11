@@ -431,6 +431,27 @@ public class ExtraCredit {
    * position
    */
   public int[][] countPathsInMatrix(int[][] matrix) {
+    initializeFirstRowCol(matrix);
+    countPathsHelper(matrix);
     return matrix;
+  }
+
+  private void initializeFirstRowCol(int[][] matrix) {
+    for (int col = 0; col < matrix[0].length; col++) {
+      matrix[0][col] = 1;
+    }
+    for (int row = 0; row < matrix.length; row++) {
+      matrix[row][0] = 1;
+    }
+  }
+
+  private void countPathsHelper(int[][] matrix) {
+
+    for (int row = 1; row < matrix.length; row++) {
+      for (int col = 1; col < matrix[row].length; col++) {
+        // Increment matrix at row, col
+        matrix[row][col] = matrix[row-1][col] + matrix[row][col-1];
+      }
+    }
   }
 }
