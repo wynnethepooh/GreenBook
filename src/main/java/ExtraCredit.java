@@ -238,4 +238,16 @@ public class ExtraCredit {
   public int countNodesInRange(TreeNode root, int start, int end) {
     return 0;
   }
+
+  /**
+   * Given an NxM matrix, return a matrix with the number of paths from the top
+   * left corner to any position.
+   *
+   * @param matrix NxM matrix
+   * @return matrix with each position containing number of paths to that
+   * position
+   */
+  public int[][] countPathsInMatrix(int[][] matrix) {
+    return matrix;
+  }
 }
