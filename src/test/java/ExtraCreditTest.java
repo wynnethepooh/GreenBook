@@ -273,7 +273,12 @@ public class ExtraCreditTest {
             null, null, 10, 14
     });
 
+    assertEquals(4, ec.returnKthSmallestBST(tree, 1));
+    assertEquals(8, ec.returnKthSmallestBST(tree, 2));
     assertEquals(10, ec.returnKthSmallestBST(tree, 3));
+    assertEquals(12, ec.returnKthSmallestBST(tree, 4));
     assertEquals(14, ec.returnKthSmallestBST(tree, 5));
+    assertEquals(20, ec.returnKthSmallestBST(tree, 6));
+    assertEquals(22, ec.returnKthSmallestBST(tree, 7));
   }
 }
