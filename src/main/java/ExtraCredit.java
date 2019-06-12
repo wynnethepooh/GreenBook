@@ -132,10 +132,9 @@ public class ExtraCredit {
    *          0      0    0    0
    *
    * @param root root of tree
-   * @return sum tree of original tree
    */
-  public TreeNode transformToSumTree(TreeNode root) {
-    return null;
+  public void transformToSumTree(TreeNode root) {
+
   }
 
   /**

@@ -87,12 +87,11 @@ public class ExtraCreditTest {
             4, 12,
             0, 0, 0, 0
     });
-    TreeNode result = ec.transformToSumTree(tree);
-    assertNotNull(result);
+    ec.transformToSumTree(tree);
 
-    assertTrue(expected.equalsTree(result),
+    assertTrue(expected.equalsTree(tree),
             "expected: \n" + expected.toString()
-                    + "\nactual: \n" + result.toString());
+                    + "\nactual: \n" + tree.toString());
   }
 
   @Test
