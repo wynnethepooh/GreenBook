@@ -719,6 +719,38 @@ public class ExtraCredit {
    * @return maximum width of tree
    */
   public int maxWidthOfBinaryTree(TreeNode root) {
-    return -1;
+    // Keep track of max width
+    int maxWidth = 0;
+
+    // Keep queue of nodes to traverse and add root
+    Queue<TreeNode> nextLevel = new LinkedList<>();
+    nextLevel.add(root);
+
+    // while queue isn't empty
+    while (!nextLevel.isEmpty()) {
+      int width = 0;
+      // Copy queue - current level
+      Queue<TreeNode> currentLevel = nextLevel;
+      nextLevel = new LinkedList<>();
+
+      // while current level not empty
+      while (!currentLevel.isEmpty()) {
+        // poll current level
+        TreeNode current = currentLevel.poll();
+        // increment width
+        width++;
+        // Add children to nextLevel
+        if (current.left != null) {
+          nextLevel.add(current.left);
+        }
+        if (current.right != null) {
+          nextLevel.add(current.right);
+        }
+      }
+      // Update max width if width > max width
+      maxWidth = Math.max(width, maxWidth);
+    }
+
+    return maxWidth;
   }
 }
