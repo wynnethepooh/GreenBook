@@ -4,6 +4,20 @@ import java.util.*;
 
 public class ExtraCredit {
 
+  class IntegerRef {
+    int value;
+    public IntegerRef(int value) {
+      this.value = value;
+    }
+  }
+
+  class BooleanRef {
+    boolean value;
+    public BooleanRef(boolean value) {
+      this.value = value;
+    }
+  }
+
   /**
    * Consider lines of slope -1 passing between nodes (dotted lines in below
    * diagram). The diagonal sum in a binary tree is the sum of all node’s data
@@ -587,6 +601,42 @@ public class ExtraCredit {
    * @return kth smallest element in tree
    */
   public int returnKthSmallestBST(TreeNode root, int k) {
-    return 0;
+    TreeNode result = returnKthSmallestHelper(
+            root,
+            new IntegerRef(k),
+            new BooleanRef(false));
+    return result == null ? 0 : result.data;
+  }
+
+  // k = 1
+  private TreeNode returnKthSmallestHelper(TreeNode node,
+                                           IntegerRef k,
+                                           BooleanRef hitSmallest) {
+    TreeNode result = null;
+    // If leaf, set hitSmallest
+    if (node.left == null && node.right == null) {
+      if (!hitSmallest.value) {
+        hitSmallest.value = true;
+      }
+      k.value--;
+      // If leaf is kth element, return node
+      return k.value == 0 ? node : null;
+    }
+    // Recursively check left; if found kth element, return
+    result = returnKthSmallestHelper(node.left, k, hitSmallest);
+    if (result != null) {
+      return result;
+    }
+
+    if (hitSmallest.value) {
+      k.value--;
+    }
+    // If k is 0, return current data
+    if (k.value == 0) {
+      return node;
+    }
+    // Recursively check right
+    result = returnKthSmallestHelper(node.right, k, hitSmallest);
+    return result;
   }
 }
