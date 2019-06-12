@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ExtraCreditTest {
 
@@ -75,6 +73,26 @@ public class ExtraCreditTest {
             valid.toString() + " should be valid");
     assertFalse(ec.childSum(invalid),
             invalid.toString() + " should be invalid");
+  }
+
+  @Test
+  public void transformToSumTree() {
+    TreeNode tree = new TreeNode(new Integer[] {
+            10,
+            -2, 6,
+            8, -4, 7, 5
+    });
+    TreeNode expected = new TreeNode(new Integer[] {
+            20,
+            4, 12,
+            0, 0, 0, 0
+    });
+    TreeNode result = ec.transformToSumTree(tree);
+    assertNotNull(result);
+
+    assertTrue(expected.equalsTree(result),
+            "expected: \n" + expected.toString()
+                    + "\nactual: \n" + result.toString());
   }
 
   @Test
