@@ -313,4 +313,24 @@ public class ExtraCreditTest {
     assertEquals(20, ec.returnKthSmallestBST(tree, 6));
     assertEquals(22, ec.returnKthSmallestBST(tree, 7));
   }
+
+  @Test
+  public void maxwidthOfBinaryTree() {
+    /*
+     *          1
+     *         /  \
+     *        2    3
+     *      /  \     \
+     *     4    5     8
+     *               /  \
+     *              6    7
+     */
+    TreeNode tree = new TreeNode(new Integer[] {
+            1,
+            2, 3,
+            4, 5, null, 8,
+            null, null, null, null, 6, 7
+    });
+    assertEquals(3, ec.maxWidthOfBinaryTree(tree));
+  }
 }
