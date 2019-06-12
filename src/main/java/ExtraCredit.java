@@ -132,9 +132,33 @@ public class ExtraCredit {
    *          0      0    0    0
    *
    * @param root root of tree
+   * @return sum tree of original tree
    */
   public void transformToSumTree(TreeNode root) {
+    // for each node, set value to sum of children and return original value
+    transformToSumTreeHelper(root);
+  }
 
+  private int transformToSumTreeHelper(TreeNode node) {
+    // Base case: if null, return 0; if leaf node, return leaf value
+    if (node == null) {
+      return 0;
+    }
+    if (node.left == null && node.right == null) {
+      int original = node.data;
+      node.data = 0;
+      return original;
+    }
+
+    // Recurse on left and right children
+    int left = transformToSumTreeHelper(node.left);
+    int right = transformToSumTreeHelper(node.right);
+    // Keep original value in temp
+    int original = node.data;
+    // Set value of node to sum of left and right
+    node.data = left + right;
+    // Return original value + new sum
+    return node.data + original;
   }
 
   /**
