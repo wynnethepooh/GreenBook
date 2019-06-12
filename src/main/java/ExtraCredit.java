@@ -60,6 +60,36 @@ public class ExtraCredit {
   }
 
   /**
+   * Convert a given tree to its sum tree.
+   *
+   * Given a binary tree where each node has positive and negative values,
+   * convert this to a tree where each node contains the sum of the left and
+   * right sub trees in the original tree. The values of leaf nodes are changed
+   * to 0.
+   *
+   * For example, the following tree
+   *
+   *                 10
+   *                /  \
+   *              -2   6
+   *             / \  / \
+   *            8 -4 7  5
+   * should be changed to
+   *
+   *                  20=(((8-4)-2)+((7+5)+6))
+   *                /      \
+   *          4=(8-4)      12=(7+5)
+   *            /   \      /  \
+   *          0      0    0    0
+   *
+   * @param root root of tree
+   * @return sum tree of original tree
+   */
+  public TreeNode transformToSumTree(TreeNode root) {
+    return null;
+  }
+
+  /**
    * Given a 2d grid map of '1's (land) and '0's (water), count the number of
    * islands. An island is surrounded by water and is formed by connecting
    * adjacent lands horizontally or vertically. You may assume all four edges
