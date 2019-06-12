@@ -77,6 +77,21 @@ public class ExtraCreditTest {
 
   @Test
   public void transformToSumTree() {
+    /*
+     *      10
+     *     /  \
+     *    -2   6
+     *   / \  / \
+     *  8 -4 7  5
+     *
+     * should be changed to
+     *
+     * 20=(((8-4)-2)+((7+5)+6))
+     *       /        \
+     *    4=(8-4)   12=(7+5)
+     *     /   \      /  \
+     *    0     0    0    0
+     */
     TreeNode tree = new TreeNode(new Integer[] {
             10,
             -2, 6,
@@ -297,5 +312,25 @@ public class ExtraCreditTest {
     assertEquals(14, ec.returnKthSmallestBST(tree, 5));
     assertEquals(20, ec.returnKthSmallestBST(tree, 6));
     assertEquals(22, ec.returnKthSmallestBST(tree, 7));
+  }
+
+  @Test
+  public void maxwidthOfBinaryTree() {
+    /*
+     *          1
+     *         /  \
+     *        2    3
+     *      /  \     \
+     *     4    5     8
+     *               /  \
+     *              6    7
+     */
+    TreeNode tree = new TreeNode(new Integer[] {
+            1,
+            2, 3,
+            4, 5, null, 8,
+            null, null, null, null, 6, 7
+    });
+    assertEquals(3, ec.maxWidthOfBinaryTree(tree));
   }
 }
