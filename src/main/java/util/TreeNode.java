@@ -1,6 +1,7 @@
 package util;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class TreeNode {
@@ -120,5 +121,12 @@ public class TreeNode {
     }
 
     return builder.toString();
+  }
+
+  public boolean presentInList(final List<TreeNode> trees) {
+    return trees.stream()
+            .filter(o -> o.equalsTree(this))
+            .findFirst()
+            .isPresent();
   }
 }

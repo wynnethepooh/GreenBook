@@ -753,4 +753,38 @@ public class ExtraCredit {
 
     return maxWidth;
   }
+
+  /**
+   * Construct all possible binary search trees for keys 1 to N.
+   *
+   * For example, for N = 2, there are 2 unique BSTs
+   *      1               2
+   *       \            /
+   *        2         1
+   *
+   * For N = 3, there are 5 possible BSTs
+   *   1              3        3         2      1
+   *     \           /        /        /  \      \
+   *      3        2         1        1    3      2
+   *     /       /            \                    \
+   *    2      1               2                    3
+   */
+  public List<TreeNode> uniqueBSTs(int n) {
+    return new ArrayList<>();
+  }
+
+  /**
+   * Given two lists of integers, return a list of the integers that appear in
+   * both input lists.
+   *
+   * Example:
+   *    a: [1, 2, 3]
+   *    b: [2, 5]
+   *    output: [2]
+   *
+   * Can you do it with no auxiliary space?
+   */
+  public List<Integer> sameNumbers(List<Integer> list1, List<Integer> list2) {
+    return new ArrayList<>();
+  }
 }

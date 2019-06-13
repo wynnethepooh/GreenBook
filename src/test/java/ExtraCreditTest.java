@@ -333,4 +333,40 @@ public class ExtraCreditTest {
     });
     assertEquals(3, ec.maxWidthOfBinaryTree(tree));
   }
+
+  @Test
+  public void uniqueBSTs() {
+    TreeNode tree1;
+    TreeNode tree2;
+    TreeNode tree3;
+    TreeNode tree4;
+    TreeNode tree5;
+
+    List<TreeNode> result2 = ec.uniqueBSTs(2);
+    assertEquals(2, result2.size());
+    // Check permutations of trees are present in list
+    tree1 = new TreeNode(new Integer[] {1, null, 2});
+    tree2 = new TreeNode(new Integer[] {2, 1});
+    assertTrue(tree1.presentInList(result2));
+    assertTrue(tree2.presentInList(result2));
+
+    List<TreeNode> result3 = ec.uniqueBSTs(3);
+    assertEquals(5, result3.size());
+    // Check permutations of trees are present in list
+    tree1 = new TreeNode(new Integer[] {1, null, 3, 2});
+    tree2 = new TreeNode(new Integer[] {3, 2, null, 1});
+    tree3 = new TreeNode(new Integer[] {3, 1, null, null, 2});
+    tree4 = new TreeNode(new Integer[] {2, 1, 3});
+    tree5 = new TreeNode(new Integer[] {1, null, 2, null, 3});
+  }
+
+  @Test
+  public void sameNumbers() {
+    List<Integer> list1 = Arrays.asList(new Integer[] {1, 2, 3});
+    List<Integer> list2 = Arrays.asList(new Integer[] {2, 5});
+    List<Integer> result = ec.sameNumbers(list1, list2);
+    List<Integer> expected = Arrays.asList(new Integer[] {2});
+
+    assertEquals(expected, result);
+  }
 }
