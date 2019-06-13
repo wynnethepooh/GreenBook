@@ -1,6 +1,7 @@
 import util.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ExtraCredit {
@@ -403,6 +404,21 @@ public class ExtraCredit {
    *    2      1               2                    3
    */
   public List<TreeNode> uniqueBSTs(int n) {
+    return new ArrayList<>();
+  }
+
+  /**
+   * Given two lists of integers, return a list of the integers that appear in
+   * both input lists.
+   *
+   * Example:
+   *    a: [1, 2, 3]
+   *    b: [2, 5]
+   *    output: [2]
+   *
+   * Can you do it with no auxiliary space?
+   */
+  public List<Integer> sameNumbers(List<Integer> list1, List<Integer> list2) {
     return new ArrayList<>();
   }
 }
