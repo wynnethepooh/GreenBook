@@ -785,6 +785,33 @@ public class ExtraCredit {
    * Can you do it with no auxiliary space?
    */
   public List<Integer> sameNumbers(List<Integer> list1, List<Integer> list2) {
-    return new ArrayList<>();
+
+    List<Integer> result = new ArrayList<>();
+    // Sort each array
+    Collections.sort(list1);
+    Collections.sort(list2);
+
+    // Keep pointers in each list, move forward and add to output if equal
+    int ndx1 = 0;
+    int ndx2 = 0;
+
+    while (ndx1 < list1.size() - 1 && ndx2 < list2.size() - 1) {
+      // Check if list1 at ndx1 is less than list2 at ndx2; increment ndx1
+      if (list1.get(ndx1) < list2.get(ndx2)) {
+        ndx1++;
+      } else if (list2.get(ndx2) < list1.get(ndx1)) {
+        // If ndx2 element < ndx1 element, increment ndx2
+        ndx2++;
+      } else {
+        // Check if ndx1 element == ndx2 element, add to output
+        if (result.isEmpty() || !result.get(result.size() - 1).equals(list1.get(ndx1))) {
+          result.add(list1.get(ndx1));
+        }
+        ndx1++;
+        ndx2++;
+      }
+    }
+
+    return result;
   }
 }
